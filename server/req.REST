@@ -1,0 +1,43 @@
+POST http://localhost:4000/Doc/doctor
+Content-Type: application/json
+
+{
+          "doctorName" : "ayush",       
+        "doctorSpecilization" : "docSpec",
+        "YearofExperienc" : 45,
+        "doctorEmail" : "ayush@ayhduu.com",
+        "doctorNumber" : 7854895878,
+        "place" : "y"
+}
+###
+Get http://localhost:4000/Doc/api/doctors
+Content-Type: application/json
+
+###
+PUT http://localhost:4000/Doc/updated/doctors/6388bb751de4815aff25fff2
+Content-Type: application/json
+
+{
+        "docplace" : "allahabad"
+}
+###
+GET http://localhost:4000/Pat/Patients 
+Content-Type: application/json
+###
+PUT http://localhost:4000/Pat/updated/patient/6388f439406c3e8f9168d0dc
+Content-Type: application/json
+
+{
+        
+       
+        "patientPlace" : "allahabad"
+}
+
+###
+GET http://localhost:4000/Doc/doc/allahabad
+Content-Type: application/json
+
+###
+ 
+GET http://localhost:4000/reacherDept/dept/Andaman
+Content-Type: application/json
