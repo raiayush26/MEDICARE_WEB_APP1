@@ -51,10 +51,12 @@ approuter.post("/register",async function(req,res){
 })
 approuter.post("/adminLogin",async function(req,res){
   try{
-    const reqEmail = req.body.email;
+    const reqEmail = req.body.username;
         const reqPassword = req.body.password;
         console.log(reqEmail);
-        const item = await User.findOne({email: reqEmail});
+        console.log(reqPassword);
+        const item = await User.findOne({username: reqEmail});
+        console.log("yeha pe iaga"+item);
         if(item === null){
             res.json("no")
         }else{

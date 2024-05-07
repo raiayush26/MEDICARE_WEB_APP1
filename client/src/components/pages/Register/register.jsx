@@ -3,6 +3,7 @@ import axios from 'axios';
 import "./register.css"
 import Header from "../home/navbar";
 import {useNavigate} from 'react-router-dom';
+import { Server } from '../../Server/Server';
 
 function Register (){
   const [fName, setFname] = useState('');
@@ -16,8 +17,8 @@ function Register (){
    const addItem = async() => {
   
      try {
-       const res = await axios.post(`http://localhost:4000/api/entry`,{fName: fName, lName: lName, email: email, password: password})
-       
+       const res = await axios.post(`${Server}/api/entry`,{fName: fName, lName: lName, email: email, password: password})
+       console.log(res);
         setEntries((prev) => [...prev, res.data]);
       
         navigate("/Patient",{state:{email1:email,fName:fName,lName:lName}})
@@ -42,7 +43,7 @@ function Register (){
         <input className = "form-input" type="text" placeholder="Last Name" name="lName" onChange={(e)=>{setLname(e.target.value)}}/>
         <input className = "form-input" type="email" placeholder="email" name="email" onChange={(e)=>{setEmail(e.target.value)}}/>
         <input className = "form-input" type="password" placeholder="Password" name="password" onChange={(e)=>{setPassword(e.target.value)}} autoComplete = "false"/>
-        <button className = " btn btn-lg btn-primary" type="submit" onClick={e => {addItem(e.preventDefault())}}>Sumbit</button>
+        <button className = " btn btn-sm btn-primary" type="submit" onClick={e => {addItem(e.preventDefault())}}>Submit</button>
         {/* ><NavLink to = "/Patient">submit</NavLink> */}
       </form>
       

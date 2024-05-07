@@ -14,11 +14,11 @@ function Login() {
     const handleLogin = async(e) => {
        
         try {
-
+          
             const res = await axios.post(`http://localhost:4000/admin/adminlogin`,{
                   username: email,
                   password: password                
-                }
+                }//v
             )
             console.log(res.data);
             if(res.data === "no"){return Toast.error("This email  is not registered with us ")}

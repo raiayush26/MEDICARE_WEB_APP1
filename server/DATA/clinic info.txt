@@ -1,0 +1,92 @@
+[
+  {
+    "departmentName": "Department of Pediatrics",
+    "departmentHead": "Dr. Smith",
+    "departmentArea": "Mumbai",
+    "departmentEmployment": "20",
+    "departmentphoneno": "1234567890",
+    "DepartmentOpeningtime": "9:00 AM",
+    "DepartmentClosingtime": "5:00 PM"
+  },
+  {
+    "departmentName": "Department of Cardiology",
+    "departmentHead": "Dr. Johnson",
+    "departmentArea": "Delhi",
+    "departmentEmployment": "15",
+    "departmentphoneno": "0987654321",
+    "DepartmentOpeningtime": "8:00 AM",
+    "DepartmentClosingtime": "4:00 PM"
+  },
+  {
+    "departmentName": "Department of Orthopedics",
+    "departmentHead": "Dr. Anderson",
+    "departmentArea": "Chennai",
+    "departmentEmployment": "12",
+    "departmentphoneno": "5678901234",
+    "DepartmentOpeningtime": "10:00 AM",
+    "DepartmentClosingtime": "6:00 PM"
+  },
+  {
+    "departmentName": "Department of Gynecology",
+    "departmentHead": "Dr. Williams",
+    "departmentArea": "Kolkata",
+    "departmentEmployment": "18",
+    "departmentphoneno": "3456789012",
+    "DepartmentOpeningtime": "9:30 AM",
+    "DepartmentClosingtime": "5:30 PM"
+  },
+  {
+    "departmentName": "Department of Neurology",
+    "departmentHead": "Dr. Brown",
+    "departmentArea": "Hyderabad",
+    "departmentEmployment": "10",
+    "departmentphoneno": "9876543210",
+    "DepartmentOpeningtime": "8:30 AM",
+    "DepartmentClosingtime": "4:30 PM"
+  },
+  {
+    "departmentName": "Department of Ophthalmology",
+    "departmentHead": "Dr. Taylor",
+    "departmentArea": "Pune",
+    "departmentEmployment": "14",
+    "departmentphoneno": "2345678901",
+    "DepartmentOpeningtime": "10:30 AM",
+    "DepartmentClosingtime": "6:30 PM"
+  },
+  {
+    "departmentName": "Department of Dermatology",
+    "departmentHead": "Dr. Martinez",
+    "departmentArea": "Ahmedabad",
+    "departmentEmployment": "16",
+    "departmentphoneno": "8765432109",
+    "DepartmentOpeningtime": "9:00 AM",
+    "DepartmentClosingtime": "5:00 PM"
+  },
+  {
+    "departmentName": "Department of ENT",
+    "departmentHead": "Dr. Garcia",
+    "departmentArea": "Jaipur",
+    "departmentEmployment": "11",
+    "departmentphoneno": "5432109876",
+    "DepartmentOpeningtime": "8:00 AM",
+    "DepartmentClosingtime": "4:00 PM"
+  },
+  {
+    "departmentName": "Department of Psychiatry",
+    "departmentHead": "Dr. Rodriguez",
+    "departmentArea": "Lucknow",
+    "departmentEmployment": "13",
+    "departmentphoneno": "4321098765",
+    "DepartmentOpeningtime": "11:00 AM",
+    "DepartmentClosingtime": "7:00 PM"
+  },
+  {
+    "departmentName": "Department of Dental",
+    "departmentHead": "Dr. Lopez",
+    "departmentArea": "Kochi",
+    "departmentEmployment": "17",
+    "departmentphoneno": "2109876543",
+    "DepartmentOpeningtime": "9:30 AM",
+    "DepartmentClosingtime": "5:30 PM"
+  }
+]

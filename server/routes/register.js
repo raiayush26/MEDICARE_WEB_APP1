@@ -25,8 +25,8 @@ router.post('/api/entry', async (req, res)=>{
 
         res.status(200).json(newItem);
     } catch (error) {
-        res.json(error)
-        
+        // res.json(error)
+        console.log(error);
     }
 })
 router.post('/api/entry', async (req, res)=>{
