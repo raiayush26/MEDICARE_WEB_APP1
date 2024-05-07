@@ -44,5 +44,5 @@ app.use('/admin',Adminroute)
 
 Port= 4000;
 app.listen(Port, function(){
-    console.log("Server is running on port  "+Port);
+    console.log("Server is running on port  http://localhost:"+Port);
 });

@@ -16,17 +16,20 @@ router.post('/api/entry', async (req, res)=>{
         const newItem = new register({
             fName: req.body.fName,
             lName: req.body.lName,
-            email: req.body.email,
+            username: req.body.email,
             password: hashPassword
         })
         // save
         const save = await newItem.save()
-        console.log(newItem);
+        
 
-        res.status(200).json(newItem);
+        res.status(200).json({success: true,message:"Add_success" });
     } catch (error) {
-        // res.json(error)
+       
         console.log(error);
+        if(error.code === 11000){
+            res.json({success: false,message:"Email already exist"});
+        }
     }
 })
 router.post('/api/entry', async (req, res)=>{
@@ -37,7 +40,7 @@ router.post('/api/entry', async (req, res)=>{
         const newItem = new register({
             fName: req.body.fName,
             lName: req.body.lName,
-            email: req.body.email,
+            username: req.body.email,
             
             password: hashPassword
         })
@@ -56,7 +59,7 @@ router.post("/api/entries", async (req, res) => {
         const reqEmail = req.body.email;
         const reqPassword = req.body.password;
         // console.log(reqEmail);
-        const item = await register.findOne({email: reqEmail});
+        const item = await register.findOne({username: reqEmail});
         if(item === null){
             res.json("no")
         }else{

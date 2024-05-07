@@ -5,7 +5,9 @@ import ToastContainer from "../toastContai"
 import 'react-toastify/dist/ReactToastify.css';
 import axios from "axios";
 import "./admin.css"
+import { useNavigate } from "react-router-dom";
 function Admin(){
+    const navigate = useNavigate();
     const [email,setEmail] = useState();
     const [password, setPassword] = useState();
     const [entries, setEntries] = useState([]);
@@ -18,7 +20,7 @@ function Admin(){
           if  (res.data.message ) {return Toast.error(res.data.message)}
            setEntries((prev) => [...prev, res.data]);
          
-           // navigate("/Patient",{state:{email1:email,fName:fName,lName:lName}})
+           navigate("/Patient")
            
    
         } catch (error) {

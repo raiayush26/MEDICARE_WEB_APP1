@@ -46,30 +46,32 @@ function Doctor() {
     <h1 class="h3 mb-3 mb-4 fw-normal">Doctor Form </h1>   
 
     <div class="form-floating">
-      <input type="text" name="dname" class="form-control bottom" id="floatingInput1" placeholder="Patient Full name:" onChange={(e)=>{setDocname(e.target.value)}} required autoFocus/>
+      <input type="text" name="dname" class="form-control bottom inputWithFullName" id="floatingInput1" placeholder="Patient Full name:" onChange={(e)=>{setDocname(e.target.value)}} required autoFocus/>
       <label for="floatingInput1">Doctor Full name:</label>
     </div>
     
     <div class="form-floating">
-      <input type="text" name="spec" class="form-control bottom" id="floatingInput2" onChange={(e)=>{setSpec(e.target.value)}} placeholder="Speclization"required/>
-      <label for="floatingInput2">Speclization</label>
+      <input type="text" name="spec" class="form-control bottom inputWithFullName" id="floatingInput2" onChange={(e)=>{setSpec(e.target.value)}} placeholder="Speclization"required/>
+      <label for="floatingInput2">Specialization</label>
     </div>
     <div class="form-floating">
-        <input type="number"  min="5" name="year"class="form-control bottom" id="yaer"onChange={(e)=>{setExper(e.target.value)}} placeholder="Year_of_Experience"required/>
+        <input type="number"  min="5" name="year"class="form-control bottom inputWith145px" id="yaer"onChange={(e)=>{setExper(e.target.value)}} placeholder="Year_of_Experience"required/>
         <label for="year">Year of Experience</label>
     </div>
     <div class="form-floating">
-      <input type="email" name="demail"class="form-control bottom" id="email" onChange={(e)=>{setDocemail(e.target.value)}}placeholder="Doctor Email id"required/>
+      <input type="email" name="demail"class="form-control bottom inputWithFullName" id="email" onChange={(e)=>{setDocemail(e.target.value)}}placeholder="Doctor Email id"required/>
       <label for="email">Doctor Email id</label>
   </div>
     <div class="form-floating">
-      <input type="tel" name="dnumber"class="form-control bottom" id="tel" onChange={(e)=>{setDocno(e.target.value)}}placeholder="doctor_phone_number"required/>
+      <input type="tel" name="dnumber"class="form-control bottom inputWithphone" id="tel" onChange={(e)=>{setDocno(e.target.value)}}placeholder="doctor_phone_number"required/>
       <label for="tel">Doctor Phone Number</label>
   </div>
     
     
     <div>
-      <select name="state" id="state"  onChange={(e)=>{setcity(e.target.value)}}class="form-control bottom ">
+    <br/>
+    <label htmlFor="state">Doctor State:-</label>
+      <select name="state" id="state"  onChange={(e)=>{setcity(e.target.value)}}class="form-control bottom inputWithstate">
         <option value="">State / UT *</option>
                                     <option value="Andaman">Andaman &amp; Nicobar Islands</option>
                                     <option value="Andhra_Pradesh">Andhra Pradesh</option>

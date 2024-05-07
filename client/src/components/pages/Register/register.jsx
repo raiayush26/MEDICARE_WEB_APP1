@@ -4,6 +4,8 @@ import "./register.css"
 import Header from "../home/navbar";
 import {useNavigate} from 'react-router-dom';
 import { Server } from '../../Server/Server';
+import  Toast  from "../toast";
+import ToastContainer from "../toastContai"
 
 function Register (){
   const [fName, setFname] = useState('');
@@ -15,13 +17,22 @@ function Register (){
   const navigate = useNavigate();
 // Add Food Item
    const addItem = async() => {
-  
+  console.log(fName,lName,email,password)
      try {
        const res = await axios.post(`${Server}/api/entry`,{fName: fName, lName: lName, email: email, password: password})
        console.log(res);
         setEntries((prev) => [...prev, res.data]);
-      
-        navigate("/Patient",{state:{email1:email,fName:fName,lName:lName}})
+        
+      if(res.data.success === true){
+        // navigate("/login")
+         navigate("/Patient",{state:{email1:email,fName:fName,lName:lName}})
+        console.log("success")
+      }
+      if(res.data.success === false){
+        Toast.error("email already exist")
+      }
+
+       
         
 
      } catch (error) {
@@ -35,6 +46,7 @@ function Register (){
     
     <div className="register">
       <Header />
+      <ToastContainer position="bottom-center" limit={1}/>
       
 
       <form className="register-form">

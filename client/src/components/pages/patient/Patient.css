@@ -1,0 +1,23 @@
+.form-signin{
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+}
+.inputWithMargin {
+    margin-left: 125px;
+  }
+.inputWithphone{
+    margin-left: 185px;
+}
+.inputWithFullName{
+    margin-left: 135px;
+}
+.inputWith145px{
+    margin-left: 145px;
+}
+.inputWithstate{
+    margin-top: 15px;
+    margin-left: 155px;
+    margin-bottom: 10px;
+}

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import axios from 'axios';
 import Sidebar from "../../Sidebar/Sidebar";
+import './Patient.css';
 function Patient() {
   const location =useLocation();
   const [patName,setpatName]= useState('');
@@ -56,31 +57,32 @@ function Patient() {
       <h1 class="h3 mb-3 mb-4 fw-normal">Patient Form </h1>   
   
       <div class="form-floating">
-        <input type="text" name="patName"  class="form-control bottom" id="floatingInput1" placeholder="Patient Full name:" onChange={(e)=>{setpatName(e.target.value)}}required autoFocus/>
+        <input type="text" name="patName"   class="form-control bottom inputWithFullName" id="floatingInput1" placeholder="Patient Full name:" onChange={(e)=>{setpatName(e.target.value)}}required autoFocus/>
         <label htmlFor="floatingInput1">Patient Full name:</label>
       </div>
       <div class="form-floating">
-        <input type="text" name="patAge"  class="form-control bottom" id="floatingInput2" placeholder="Patient's Age" onChange={(e)=>{setpatAge(e.target.value)}}required/>
+        <input type="text" name="patAge"  class="form-control bottom inputWithMargin" id="floatingInput2" placeholder="Patient's Age" onChange={(e)=>{setpatAge(e.target.value)}}required/>
         <label htmlFor="floatingInput2">Patient's Age</label>
       </div>
       <div class="form-floating">
-        <input type="text" name="patSex" class="form-control bottom" id="floatingInput2" placeholder="Sex"  onChange={(e)=>{setpatSex(e.target.value)}}required/>
+        <input type="text" name="patSex" class="form-control bottom inputWithMargin" id="floatingInput2" placeholder="Sex"  onChange={(e)=>{setpatSex(e.target.value)}}required/>
         <label htmlFor="floatingInput2">Patient's Sex</label>
       </div>
       <div class="form-floating">
-          <input type="text" name="patBlood"class="form-control bottom" id="floatingBlood " onChange={(e)=>{setpatBlood(e.target.value)}}placeholder="Blood group"required/>
+          <input type="text" name="patBlood"class="form-control bottom inputWithMargin" id="floatingBlood " onChange={(e)=>{setpatBlood(e.target.value)}}placeholder="Blood group"required/>
           <label htmlFor="floatingBlood ">Blood group</label>
       </div>
       <div class="form-floating">
-        <input type="text" name="patDisease"class="form-control bottom" id="floatingdisease" onChange={(e)=>{setpatDisease(e.target.value)}}placeholder="Patient Disease"required/>
+        <input type="text" name="patDisease"class="form-control bottom inputWithMargin" id="floatingdisease" onChange={(e)=>{setpatDisease(e.target.value)}}placeholder="Patient Disease"required/>
         <label htmlFor="floatingdisease">Patient Disease</label>
     </div>
     <div class="form-floating">
-      <input type="tel" name="patNumber"class="form-control bottom" id="floatingPhone" onChange={(e)=>{setpatno(e.target.value)}} placeholder="Patient Phone Number:-"required />
+      <input type="tel" name="patNumber"class="form-control bottom inputWithphone" id="floatingPhone" onChange={(e)=>{setpatno(e.target.value)}} placeholder="Patient Phone Number:-"required />
       <label htmlFor="floatingPhone">Patient Phone Number:-</label>
   </div>
       <div class="form-floating">
-        <select name="state" id="selectBox" onChange={(e)=>{setpatState(e.target.value)}} class="form-control bottom " >
+      <label htmlFor="state">Patient State:-</label>
+        <select name="state" id="selectBox" onChange={(e)=>{setpatState(e.target.value)}} class="form-control bottom  inputWithstate" >
           <option value="">State / UT *</option>
                                       <option value="Andaman">Andaman &amp; Nicobar Islands</option>
                                       <option value="Andhra_Pradesh">Andhra Pradesh</option>
@@ -120,9 +122,7 @@ function Patient() {
                                       <option value="Uttarakhand">Uttarakhand</option>
                                       <option value="West_Bengal">West Bengal</option>
                               </select>
-    </div>
-    console.log();
-    
+    </div> 
       
   
      
