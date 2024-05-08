@@ -1,0 +1,16 @@
+.About {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 20px;
+    margin-left: 150px;
+    margin-inline-end: 20px;
+}
+.about-h1 {
+    /* text-align: center; */
+}
+p {
+    margin-bottom: 20px;
+}
+ul {
+    margin-bottom: 20px;
+}

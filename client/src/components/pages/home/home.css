@@ -1,6 +1,7 @@
 .heading{
           background-color: rgb(54, 31, 167);
           padding-bottom: 20px;
+          cursor: pointer
       }
 .drop-down{
 margin-right: 15px;

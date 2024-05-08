@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 // this ois Admin login
 function Login() {
   const [email, setEmail] = useState();
+  const navigate = useNavigate();
   const [password, setPassword] = useState();
  
 
@@ -27,6 +28,7 @@ function Login() {
 
             else{
                 if(res.data=== email){
+                  navigate("/about")
                     console.log("Succefully");
                     
                 }else{return Toast.error("Password is Incorrect")}}  

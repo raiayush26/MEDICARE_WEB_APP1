@@ -23,6 +23,7 @@ import ModiflyPat from "./pages/delPat/ModiflyPat";
 import Modclinic from "./pages/delCinic/modclinic";
 
 import Mod from "./pages/modDoc/Modifly"
+import About from "./pages/About/About";
 
 function App(){
     return(
@@ -34,8 +35,9 @@ function App(){
                     <Route path = "/login" element = {<Login />} />
                     <Route path = "/fail" element = {<Failure />} />
                     <Route path= "/success" element = {<Success />} />
-                    <Route path= "/admin" element = {<Admin />} />
-                    <Route path= "/adminlogin" element = {<AdLogin />} />
+                    {/* <Route path= "/admin" element = {<Admin />} /> */}
+                    <Route path= "/about" element = {<About />} />
+                    <Route path= "/admin" element = {<AdLogin />} />
                     <Route path= "/Patient" element = {<Patient />}/>
                     <Route path= "/reacherDept" element ={<ReacherDept/>}/>
                     <Route path= "/doc" element ={<Doctor/>}/>

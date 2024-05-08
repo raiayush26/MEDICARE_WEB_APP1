@@ -20,7 +20,7 @@ function Admin(){
           if  (res.data.message ) {return Toast.error(res.data.message)}
            setEntries((prev) => [...prev, res.data]);
          
-           navigate("/Patient")
+           navigate("/admin")
            
    
         } catch (error) {

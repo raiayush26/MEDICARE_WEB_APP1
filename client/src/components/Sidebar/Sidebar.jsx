@@ -18,7 +18,7 @@ const handlechange =() =>{
                 <a href="http://"></a>
             </div>
             <ul>
-                <li><a href="/admin">About</a></li> 
+                <li><a href="/about">About</a></li> 
                 <li><a href="/Doc">Add Doctor</a></li> 
                 <li> <a href="/LisDoc">List Doctor</a></li> 
                 <li><a href="/Deldoc">Delete Doctor</a></li> 
