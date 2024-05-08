@@ -2,7 +2,7 @@
   {
     "departmentName": "Department of Pediatrics",
     "departmentHead": "Dr. Smith",
-    "departmentArea": "Mumbai",
+    "departmentArea": "Maharashtra",
     "departmentEmployment": "20",
     "departmentphoneno": "1234567890",
     "DepartmentOpeningtime": "9:00 AM",
@@ -20,7 +20,7 @@
   {
     "departmentName": "Department of Orthopedics",
     "departmentHead": "Dr. Anderson",
-    "departmentArea": "Chennai",
+    "departmentArea": "Tamil Nadu",
     "departmentEmployment": "12",
     "departmentphoneno": "5678901234",
     "DepartmentOpeningtime": "10:00 AM",

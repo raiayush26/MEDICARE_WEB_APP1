@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, {useState, useEffect} from "react";
-import {useLocation, useNavigate} from 'react-router-dom';
+import {useLocation} from 'react-router-dom';
 import './succes.css'
 import SuccessHeader from "./successHeader";
 import Item from "./listItem";
@@ -130,7 +130,7 @@ function Success() {
                     <Item key="5" name="Bihar"/>
                     <Item key="6" name="Chhaittisgarh"/>
                     <Item key="7" name="Goa"/>
-                    <Item key="8" name="Gujrat"/>
+                    <Item key="8" name="Gujarat"/>
                     <Item key="9" name="Hariyana"/>
                     <Item key="10" name="Himachal Pradesh"/>
                     <Item key="11" name="Jharkhand"/>

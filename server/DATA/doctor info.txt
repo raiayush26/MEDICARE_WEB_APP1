@@ -1,262 +1,154 @@
 [
-  {
-    "docName": "John Smith",
-    "docSpecilization": "Cardiology",
-    " Year": "10",
-    "docNumber": "1234567890",
-    "docplace": "New York"
-  },
-  {
-    "docName": "Sarah Johnson",
-    "docSpecilization": "Dermatology",
-    " Year": "5",
-    "docNumber": "9876543210",
-    "docplace": "Los Angeles"
-  },
-  {
-    "docName": "Michael Brown",
-    "docSpecilization": "Pediatrics",
-    " Year": "8",
-    "docNumber": "5678901234",
-    "docplace": "Chicago"
-  },
-  {
-    "docName": "Emily Davis",
-    "docSpecilization": "Orthopedics",
-    " Year": "12",
-    "docNumber": "4321098765",
-    "docplace": "Houston"
-  },
-  {
-    "docName": "Daniel Wilson",
-    "docSpecilization": "Ophthalmology",
-    " Year": "15",
-    "docNumber": "8901234567",
-    "docplace": "Philadelphia"
-  },
-  {
-    "docName": "Olivia Taylor",
-    "docSpecilization": "Gynecology",
-    " Year": "7",
-    "docNumber": "6789012345",
-    "docplace": "Phoenix"
-  },
-  {
-    "docName": "James Thomas",
-    "docSpecilization": "Neurology",
-    " Year": "9",
-    "docNumber": "3456789012",
-    "docplace": "San Antonio"
-  },
-  {
-    "docName": "Sophia Anderson",
-    "docSpecilization": "Psychiatry",
-    " Year": "6",
-    "docNumber": "0123456789",
-    "docplace": "San Diego"
-  },
-  {
-    "docName": "Benjamin Martinez",
-    "docSpecilization": "Surgery",
-    " Year": "11",
-    "docNumber": "7890123456",
-    "docplace": "Dallas"
-  },
-  {
-    "docName": "Ava Wilson",
-    "docSpecilization": "ENT",
-    " Year": "14",
-    "docNumber": "2345678901",
-    "docplace": "Austin"
-  }
+    {
+        "docName": "John Smith",
+        "docSpecialization": "Cardiology",
+        "Year": 10,
+        "docNumber": 1234567890,
+        "docPlace": "Himachal Pradesh",
+        "docEmail": "john.smith@example.com"
+    },
+    {
+        "docName": "Sarah Johnson",
+        "docSpecialization": "Dermatology",
+        "Year": 5,
+        "docNumber": 9876543210,
+        "docPlace": "Maharashtra",
+        "docEmail": "sarah.johnson@example.com"
+    },
+    {
+        "docName": "Michael Brown",
+        "docSpecialization": "Pediatrics",
+        "Year": 8,
+        "docNumber": 5678901234,
+        "docPlace": "Meghalaya",
+        "docEmail": "michael.brown@example.com"
+    },
+    {
+        "docName": "Emily Davis",
+        "docSpecialization": "Orthopedics",
+        "Year": 12,
+        "docNumber": 4321098765,
+        "docPlace": "Manipur",
+        "docEmail": "emily.davis@example.com"
+    },
+    {
+        "docName": "Daniel Wilson",
+        "docSpecialization": "Ophthalmology",
+        "Year": 15,
+        "docNumber": 8901234567,
+        "docPlace": "Odisha",
+        "docEmail": "daniel.wilson@example.com"
+    },
+    {
+        "docName": "Olivia Taylor",
+        "docSpecialization": "Gynecology",
+        "Year": 7,
+        "docNumber": 6789012345,
+        "docPlace": "Nagaland",
+        "docEmail": "olivia.taylor@example.com"
+    },
+    {
+        "docName": "James Thomas",
+        "docSpecialization": "Neurology",
+        "Year": 9,
+        "docNumber": 3456789012,
+        "docPlace": "Andhra Pradesh",
+        "docEmail": "james.thomas@example.com"
+    },
+    {
+        "docName": "Sophia Anderson",
+        "docSpecialization": "Psychiatry",
+        "Year": 6,
+        "docNumber": 123456789,
+        "docPlace": "Puducherry",
+        "docEmail": "sophia.anderson@example.com"
+    },
+    {
+        "docName": "Benjamin Martinez",
+        "docSpecialization": "Surgery",
+        "Year": 11,
+        "docNumber": 7890123456,
+        "docPlace": "Andaman",
+        "docEmail": "benjamin.martinez@example.com"
+    },
+    {
+        "docName": "Ava Wilson",
+        "docSpecialization": "ENT",
+        "Year": 14,
+        "docNumber": 2345678901,
+        "docPlace": "Sikkim",
+        "docEmail": "ava.wilson@example.com"
+    },
+    {
+        "docName": "John Doe",
+        "docSpecialization": "Cardiology",
+        "Year": 10,
+        "docNumber": 1234567890,
+        "docPlace": "Uttarakhand",
+        "docEmail": "john.doe@example.com"
+    },
+    {
+        "docName": "Jane Smith",
+        "docSpecialization": "Pediatrics",
+        "Year": 5,
+        "docNumber": 9876543210,
+        "docPlace": "Delhi",
+        "docEmail": "jane.smith@example.com"
+    },
+    {
+        "docName": "David Johnson",
+        "docSpecialization": "Dermatology",
+        "Year": 15,
+        "docNumber": 4567890123,
+        "docPlace": "Tamil Nadu",
+        "docEmail": "david.johnson@example.com"
+    },
+    {
+        "docName": "Sarah Williams",
+        "docSpecialization": "Orthopedics",
+        "Year": 8,
+        "docNumber": 8901234567,
+        "docPlace": "Kolkata",
+        "docEmail": "sarah.williams@example.com"
+    },
+    {
+        "docName": "Michael Brown",
+        "docSpecialization": "Ophthalmology",
+        "Year": 12,
+        "docNumber": 2345678901,
+        "docPlace": "Himachal Pradesh",
+        "docEmail": "michael.brown2@example.com"
+    },
+    {
+        "docName": "Emily Davis",
+        "docSpecialization": "Gynecology",
+        "Year": 7,
+        "docNumber": 9012345678,
+        "docPlace": "Telangana",
+        "docEmail": "emily.davis2@example.com"
+    },
+    {
+        "docName": "Robert Wilson",
+        "docSpecialization": "Neurology",
+        "Year": 20,
+        "docNumber": 3456789012,
+        "docPlace": "Maharashtra",
+        "docEmail": "robert.wilson@example.com"
+    },
+    {
+        "docName": "Olivia Miller",
+        "docSpecialization": "Psychiatry",
+        "Year": 9,
+        "docNumber": 123456789,
+        "docPlace": "Dadra & Nagar Haveli and Daman & Diu",
+        "docEmail": "olivia.miller@example.com"
+    },
+    {
+        "docName": "Daniel Taylor",
+        "docSpecialization": "ENT",
+        "Year": 6,
+        "docNumber": 7890123456,
+        "docPlace": "Rajasthan",
+        "docEmail": "daniel.taylor@example.com"
+    }
 ]
-Toggle theme
-profile image
-Create new endpoint
-Create JSON response, turn it into an endpoint and make requests.
-
-Go to Endpoints
-
-Create Endpoint
-Prompt
-doctor info
-Limit
-10
-Name
-docName
-Type
-
-String
-Description
-Name of Doctor
-
-docSpecilization
-
-String
-Speciliztion of doctor
-
- Year
-
-String
-Year of experience of doctor
-
-docNumber
-
-Number
-phone no of doctor
-
-docplace
-
-String
-Place where doctor live in india
-
-+ Add Field
-Get JSON Data
-10 items
-
-[
-  {
-    "docName": "string",
-    "docSpecilization": "string",
-    " Year": "string",
-    "docNumber": "number",
-    "docplace": "string"
-  },
-  {
-    "docName": "John Doe",
-    "docSpecilization": "Cardiology",
-    " Year": "10",
-    "docNumber": "1234567890",
-    "docplace": "Mumbai"
-  },
-  {
-    "docName": "Jane Smith",
-    "docSpecilization": "Pediatrics",
-    " Year": "5",
-    "docNumber": "9876543210",
-    "docplace": "Delhi"
-  },
-  {
-    "docName": "David Johnson",
-    "docSpecilization": "Dermatology",
-    " Year": "15",
-    "docNumber": "4567890123",
-    "docplace": "Chennai"
-  },
-  {
-    "docName": "Sarah Williams",
-    "docSpecilization": "Orthopedics",
-    " Year": "8",
-    "docNumber": "8901234567",
-    "docplace": "Kolkata"
-  },
-  {
-    "docName": "Michael Brown",
-    "docSpecilization": "Ophthalmology",
-    " Year": "12",
-    "docNumber": "2345678901",
-    "docplace": "Bangalore"
-  },
-  {
-    "docName": "Emily Davis",
-    "docSpecilization": "Gynecology",
-    " Year": "7",
-    "docNumber": "9012345678",
-    "docplace": "Hyderabad"
-  },
-  {
-    "docName": "Robert Wilson",
-    "docSpecilization": "Neurology",
-    " Year": "20",
-    "docNumber": "3456789012",
-    "docplace": "Pune"
-  },
-  {
-    "docName": "Olivia Miller",
-    "docSpecilization": "Psychiatry",
-    " Year": "9",
-    "docNumber": "0123456789",
-    "docplace": "Ahmedabad"
-  },
-  {
-    "docName": "Daniel Taylor",
-    "docSpecilization": "ENT",
-    " Year": "6",
-    "docNumber": "7890123456",
-    "docplace": "Jaipur"
-  }
-]
-See examples
-[
-  {
-    "docName": "string",
-    "docSpecilization": "string",
-    " Year": "string",
-    "docNumber": "number",
-    "docplace": "string"
-  },
-  {
-    "docName": "John Doe",
-    "docSpecilization": "Cardiology",
-    " Year": "10",
-    "docNumber": "1234567890",
-    "docplace": "Mumbai"
-  },
-  {
-    "docName": "Jane Smith",
-    "docSpecilization": "Pediatrics",
-    " Year": "5",
-    "docNumber": "9876543210",
-    "docplace": "Delhi"
-  },
-  {
-    "docName": "David Johnson",
-    "docSpecilization": "Dermatology",
-    " Year": "15",
-    "docNumber": "4567890123",
-    "docplace": "Chennai"
-  },
-  {
-    "docName": "Sarah Williams",
-    "docSpecilization": "Orthopedics",
-    " Year": "8",
-    "docNumber": "8901234567",
-    "docplace": "Kolkata"
-  },
-  {
-    "docName": "Michael Brown",
-    "docSpecilization": "Ophthalmology",
-    " Year": "12",
-    "docNumber": "2345678901",
-    "docplace": "Bangalore"
-  },
-  {
-    "docName": "Emily Davis",
-    "docSpecilization": "Gynecology",
-    " Year": "7",
-    "docNumber": "9012345678",
-    "docplace": "Hyderabad"
-  },
-  {
-    "docName": "Robert Wilson",
-    "docSpecilization": "Neurology",
-    " Year": "20",
-    "docNumber": "3456789012",
-    "docplace": "Pune"
-  },
-  {
-    "docName": "Olivia Miller",
-    "docSpecilization": "Psychiatry",
-    " Year": "9",
-    "docNumber": "0123456789",
-    "docplace": "Ahmedabad"
-  },
-  {
-    "docName": "Daniel Taylor",
-    "docSpecilization": "ENT",
-    " Year": "6",
-    "docNumber": "7890123456",
-    "docplace": "Jaipur"
-  }
-]
-

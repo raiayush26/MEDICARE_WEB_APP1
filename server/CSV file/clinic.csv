@@ -1,11 +1,11 @@
 departmentName,departmentHead,departmentArea,departmentEmployment,departmentphoneno,DepartmentOpeningtime,DepartmentClosingtime
-Department of Pediatrics,Dr. Smith,Mumbai,20,1234567890,9:00 AM,5:00 PM
+Department of Pediatrics,Dr. Smith,Maharashtra,20,1234567890,9:00 AM,5:00 PM
 Department of Cardiology,Dr. Johnson,Delhi,15,0987654321,8:00 AM,4:00 PM
-Department of Orthopedics,Dr. Anderson,Chennai,12,5678901234,10:00 AM,6:00 PM
-Department of Gynecology,Dr. Williams,Kolkata,18,3456789012,9:30 AM,5:30 PM
-Department of Neurology,Dr. Brown,Hyderabad,10,9876543210,8:30 AM,4:30 PM
-Department of Ophthalmology,Dr. Taylor,Pune,14,2345678901,10:30 AM,6:30 PM
-Department of Dermatology,Dr. Martinez,Ahmedabad,16,8765432109,9:00 AM,5:00 PM
-Department of ENT,Dr. Garcia,Jaipur,11,5432109876,8:00 AM,4:00 PM
-Department of Psychiatry,Dr. Rodriguez,Lucknow,13,4321098765,11:00 AM,7:00 PM
-Department of Dental,Dr. Lopez,Kochi,17,2109876543,9:30 AM,5:30 PM
+Department of Orthopedics,Dr. Anderson,Tamil Nadu,12,5678901234,10:00 AM,6:00 PM
+Department of Gynecology,Dr. Williams,West Bengal,18,3456789012,9:30 AM,5:30 PM
+Department of Neurology,Dr. Brown,Telangana,10,9876543210,8:30 AM,4:30 PM
+Department of Ophthalmology,Dr. Taylor,Mizoram,14,2345678901,10:30 AM,6:30 PM
+Department of Dermatology,Dr. Martinez,Gujarat,16,8765432109,9:00 AM,5:00 PM
+Department of ENT,Dr. Garcia,Rajasthan,11,5432109876,8:00 AM,4:00 PM
+Department of Psychiatry,Dr. Rodriguez,Uttar Pradesh,13,4321098765,11:00 AM,7:00 PM
+Department of Dental,Dr. Lopez,Kerala,17,2109876543,9:30 AM,5:30 PM

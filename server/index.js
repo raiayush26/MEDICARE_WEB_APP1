@@ -30,7 +30,7 @@ app.use(passport.session());
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongoose.connect(process.env.ADMIN)
+mongoose.connect(process.env.ONLINE_ADMIN)
 .then(()=> console.log('Database connected'))
 .catch(err => console.log(err))
 mongoose.set('strictQuery', false);
