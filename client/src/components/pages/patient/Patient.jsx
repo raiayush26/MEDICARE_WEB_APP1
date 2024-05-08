@@ -6,44 +6,42 @@ import Sidebar from "../../Sidebar/Sidebar";
 import './Patient.css';
 function Patient() {
   const location =useLocation();
-  const [patName,setpatName]= useState('');
+  const firstName = location.state.firstName;
+  const lastName = location.state.lastName
+  const [patName,setpatName]= useState(firstName+" "+lastName);
   const [patAge,setpatAge]= useState( );
   const [patSex,setpatSex]= useState('');
   const [patBlood,setpatBlood]= useState('');
+  const [patEmail,setpatEmail]= useState(location.state.email1);
   const [patDisease,setpatDisease]= useState('');
   const [patno,setpatno]= useState();
   const [patState,setpatState]= useState();
   const [entry,setEntry]= useState([]);
   const navigate = useNavigate();
   const [email,setEmail] = useState('');
-  const Email = location.state.email1;     
-  const First_Name = location.state.fName;
-  const Last_Name = location.state.lName
-  // console.log(location.state.email1);
+  const Email = location.state.Email;     
  
-  // setEmail(Email)
-  // console.log("set"+email);
-  // console.log(location.state.fName);
-  // console.log(location.state.lName);
+  
   const addItem = async() => {
     //  e.preventDefault();
-    setEmail(Email)
+    
      try {
       console.log(patBlood);
-     
+      console.log(Email);
        const res = await axios.post(`http://localhost:4000/Pat/Patient`,
        {
         patName: patName,
         patAge:patAge,
         patSex:patSex,
         patBlood:patBlood,
+        patEmail:Email,
         patDisease:patDisease,
         patNumber:patno,
         place:patState
       })
         setEntry((prev) => [...prev, res.data]);
         console.log(email);
-        navigate("/success",{state: {email1 : Email}});
+        navigate("/success",{state: {UserName : Email}});
      } catch (error) {
        console.error(error);
      }
@@ -57,7 +55,7 @@ function Patient() {
       <h1 class="h3 mb-3 mb-4 fw-normal">Patient Form </h1>   
   
       <div class="form-floating">
-        <input type="text" name="patName"   class="form-control bottom inputWithFullName" id="floatingInput1" placeholder="Patient Full name:" onChange={(e)=>{setpatName(e.target.value)}}required autoFocus/>
+        <input type="text" name="patName" value={firstName+" "+lastName}  class="form-control bottom inputWithFullName" id="floatingInput1" placeholder="Patient Full name:" onChange={(e)=>{setpatName(e.target.value)}}required autoFocus/>
         <label htmlFor="floatingInput1">Patient Full name:</label>
       </div>
       <div class="form-floating">

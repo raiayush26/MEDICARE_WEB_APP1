@@ -1,23 +1,18 @@
 const router = require('express').Router();
 const bcrypt = require("bcrypt");
 const register = require('../models/register');
-const session = require('express-session');
-const passport = require("passport");
-const passportLocalMongoose = require("passport-local-mongoose");
-
-
-
 
 // Insert item
-router.post('/api/entry', async (req, res)=>{
+router.post('/post', async (req, res)=>{
     try{
+        console.log(req.body);
         const plainPassword = req.body.password;
         const hashPassword = bcrypt.hashSync(plainPassword, 7);
+        let FullName = req.body.fName + " " + req.body.lName;
         const newItem = new register({
-            fName: req.body.fName,
-            lName: req.body.lName,
+            FullName : FullName,
             username: req.body.email,
-            password: hashPassword
+            Password: hashPassword
         })
         // save
         const save = await newItem.save()
@@ -32,34 +27,30 @@ router.post('/api/entry', async (req, res)=>{
         }
     }
 })
-router.post('/api/entry', async (req, res)=>{
-    try{
-        const plainPassword = req.body.password;
-        const hashPassword = bcrypt.hashSync(plainPassword, 7);
-    
-        const newItem = new register({
-            fName: req.body.fName,
-            lName: req.body.lName,
-            username: req.body.email,
-            
-            password: hashPassword
-        })
-        // save
-        const save = await newItem.save()
-        console.log(newItem);
 
-        res.status(200).json(newItem);
+router.get("/", async(req, res) => {
+    try {
+        const entries = await register.find({})
+        res.status(200).json(entries);
     } catch (error) {
-        res.json(error)
-        
+        res.json(error);
     }
 })
-router.post("/api/entries", async (req, res) => {
+router.get("/:email", async(req, res) => {
+    try {
+        const entries = await register.find({username:req.params.email})
+        res.status(200).json(entries);
+    } catch (error) {
+        res.json(error);
+    }
+})
+router.get("/login", async (req, res) => {
+    console.log("login");
     try {
         const reqEmail = req.body.email;
         const reqPassword = req.body.password;
-        // console.log(reqEmail);
         const item = await register.findOne({username: reqEmail});
+        console.log(item);
         if(item === null){
             res.json("no")
         }else{
@@ -77,23 +68,16 @@ router.post("/api/entries", async (req, res) => {
 })
 
 
-router.delete("/api/entry/:_id", async(req, res) => {
+router.delete("/:id", async(req, res) => {
     try {
-        console.log(req.params._id);
-        const deleteItem = await register.deleteOne({_id:req.params._id});
+        console.log(req.params.id);
+        const deleteItem = await register.deleteOne({_id:req.params.id});
         res.status(200).json('Item deleted');
     } catch (error) {
         res.json(error);
     }
 })
 
-router.get("/api/entries", async(req, res) => {
-    try {
-        const entries = await register.find({})
-        res.status(200).json(entries);
-    } catch (error) {
-        res.json(error);
-    }
-})
+
 
 module.exports = router;

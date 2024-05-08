@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const registerSchema = new mongoose.Schema({
-    name: {
+    FullName: {
         type: String,
         
     },
@@ -8,7 +8,7 @@ const registerSchema = new mongoose.Schema({
         type: String,
         
     },
-    password: {
+    Password: {
         type: String,
        
     }

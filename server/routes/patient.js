@@ -4,7 +4,7 @@ const _ = require('lodash');
 Patroute.post('/Patient', async (req, res)=>{
           try {
             // console.log("Patient port is clicked");
-            console.log(req.body.patBlood);
+            console.log(req.body);
            var  place =  _.toLower(req.body.place);
 
           const newPatient = new Patient({
@@ -38,6 +38,16 @@ Patroute.get('/Patients', async (req, res)=>{
              res.json(error)
              
          }
+})
+Patroute.get('/Patients/:email', async (req, res)=>{
+          
+         try{
+            // console.log('get function is clicked ');
+             const reqPatient = await Patient.find({patientEmail:req.params.email});
+                res.json({success: true, query:reqPatient})
+            } catch (error) {
+                res.json({success: false, message:error})
+            }
 })
 Patroute.put('/api/Patients/:id', async (req, res)=>{
           console.log(req.params.id);

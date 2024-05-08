@@ -5,35 +5,49 @@ import './succes.css'
 import SuccessHeader from "./successHeader";
 import Item from "./listItem";
 import DocPlace from "./docPlace"
-import CiliniPlace from "./CiliniPlace";
+import ClinicPlace from "./ClinicPlace";
 import Card from "./Card";
+import { ToastContainer, toast } from "react-toastify";
 
-let foundEntry = {}
+
+let foundEntry = {};
 
 function Success() {
     const location = useLocation();
-    const [entries,
-        setEntries] = useState([]);
-    const [docAreas,
-        setdocArea] = useState([]);
-    const [cilAreas,
-        setcilArea] = useState([]);
-    const [Area,
-        setArea] = useState(null);
-    const emails = location.state.email1;
-    const [doitem,
-        setitem] = useState(1)
-    const [cilitem,
-        setcilitem] = useState(1)
+    const [entries,setEntries] = useState([]);
+    const [docAreas,setdocArea] = useState([]);
+    const [cilAreas,setcilArea] = useState([]);
+    const [Area,setArea] = useState(null);
+    const [Area2,setArea2] = useState(null);
+    const emails = location.state.UserName ;
+    const [doitem,setitem] = useState(1)
+    const [cilitem,setcilitem] = useState(1)
+    const [isLoading, setIsLoading] = useState(false);
+    // const loading = () => setIsLoading(!isLoading);
     useEffect(() => {
         async function getEntry() {
             try {
-                const res = await axios.get("http://localhost:4000/api/entries")
-                setEntries(res.data);
+                console.log(emails);    
+                const res = await axios.get(`http://localhost:4000/Pat/Patients/${emails}`)
+                if(res.data.success ){
+                    console.log("yes");
+                    setArea(res.data.query[0].patientPlace);
+                    setEntries(res.data.query[0]);
+                }else{
+                    toast.error("No Entry Found")
+                }
+                console.log(res.data);
+                // setEntries(res.data);
             } catch (error) {
                 console.log(error)
             }
         }
+        getEntry();
+    }, [])
+
+    useEffect(() => {
+        setIsLoading(true);
+        const timeID = setTimeout(() => {
         async function getCinicPlace() {
             try {
                 if (Area === null) {
@@ -82,33 +96,33 @@ function Success() {
                 console.log(error)
             }
         }
-        getEntry();
         getDoctorPlace();
         getCinicPlace()
+        setIsLoading(false);
+    }, 2000);
+    return () => {clearTimeout(timeID);  };
+       
     }, [Area]);
-
-    entries.forEach(entry => {
-        if (entry.email === emails) {
-            foundEntry = entry
-        }
-    })
-
-    console.log(foundEntry);
+useEffect(() => {
+    console.log(entries);
+}, [foundEntry])
     const Search = (e) => {
+        setArea("");
         setArea(e.target.value);
 
     }
+    
     return (
 
         <div className="success">
-            <SuccessHeader name={(foundEntry.fName)} lName ={foundEntry.lName}/>
+            <ToastContainer position="top-center" limit={1}/>
+            <SuccessHeader name={(entries.patientName) || null}  lName ={entries.lName || null}/>
             <div className="row fex">
                 <div className="col-lg-4">
                     <Card
-                        fName={foundEntry.fName}
-                        lName
-                        ={foundEntry.lName}
-                        email={foundEntry.email}/>
+                        fName={entries.patientName}
+                        phoneNumber={entries.patientNumber}
+                        email={entries.patientEmail}/>
                 </div>
             </div>
             <div className="area-selector">
@@ -162,13 +176,16 @@ function Success() {
 
                 </select>
             </div>
+            {(isLoading) ? <div className="loading">Loading...</div> : 
+            
+            <>
             <DocPlace place={(Area)}/>
             <div className="doc-place">
                 {(doitem === 1)
                     ? <table id="cust">
                             <tr>
                                 <th>Doctor Full name</th>
-                                <th>Speclization</th>
+                                <th>Specialization</th>
                                 <th>Year of Experience</th>
                                 <th>Doctor Email</th>
                                 <th>Doctor Number</th>
@@ -200,7 +217,7 @@ function Success() {
                         Not Found</h5>
 }
             </div>
-            <CiliniPlace place ={(Area)}/>
+            <ClinicPlace place ={(Area)}/>
             <div className="doc-place">
                 {(cilitem === 1)
                     ? <table id="cust">
@@ -242,6 +259,9 @@ function Success() {
                         Not Found</h5>
 }
             </div>
+            </>
+
+}
         </div>
     )
 }

@@ -8,7 +8,7 @@ function Card(props) {
                         <div className="card-body">
                             <h5 className="card-title">Basic Info</h5>
                             <h6 className="info">First Name:  </h6> <p className="info">{props.fName}</p><br/>
-                            <h6 className="info">Last Name:  </h6> <p className="info">{props.lName}</p><br />
+                            <h6 className="info">Phone Number:  </h6> <p className="info">{props.phoneNumber}</p><br />
                             <h6 className="info">Email:  </h6> <p className="info">{props.email}</p><br/>
                             {/* <h6 className="info">Age:  </h6> <p className="info">{props.email}</p><br/> */}
                             <div class="nav-item dropdown">

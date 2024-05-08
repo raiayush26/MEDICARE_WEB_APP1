@@ -14,7 +14,7 @@ function Login(){
     const handleLogin = async(e) => {
        
         try {
-            const res = await axios.post(`http://localhost:4000/api/entries`,
+            const res = await axios.get(`http://localhost:4000/register/login`,
                 {
                   email: email,
                   password: password                
@@ -26,7 +26,9 @@ function Login(){
 
             else{
                 if(res.data=== email){
-                    navigate("/success",{state: {email1 : email}});
+                    console.log(res.data)
+
+                    navigate("/success",{state: {UserName  : email}});
                     
                 }else{return Toast.error("Password is Incorrect")}}  
 

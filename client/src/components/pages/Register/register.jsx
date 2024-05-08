@@ -19,20 +19,18 @@ function Register (){
    const addItem = async() => {
   console.log(fName,lName,email,password)
      try {
-       const res = await axios.post(`${Server}/api/entry`,{fName: fName, lName: lName, email: email, password: password})
+       const res = await axios.post(`${Server}/register/post`,{fName: fName, lName: lName, email: email, password: password})
        console.log(res);
         setEntries((prev) => [...prev, res.data]);
         
       if(res.data.success === true){
         // navigate("/login")
-         navigate("/Patient",{state:{email1:email,fName:fName,lName:lName}})
+         navigate("/Patient",{state:{Email:email,firstName:fName,lastName:lName}})
         console.log("success")
       }
       if(res.data.success === false){
         Toast.error("email already exist")
-      }
-
-       
+      }      
         
 
      } catch (error) {

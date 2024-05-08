@@ -4,10 +4,10 @@ const express = require("express");
 const mongoose = require("mongoose");
 
 const session = require('express-session');
-const Adminroute = require('./routes/User')
-const Registroute = require("./routes/register");
-const Patroute = require("./routes/patient");
-const Docroute = require("./routes/doctor");
+const AdminRoute = require('./routes/User')
+const RegisterRoute = require("./routes/register");
+const PatientRoute = require("./routes/patient");
+const DoctorRoute = require("./routes/doctor");
 const DeptRoute = require("./routes/Dept");
 const passport = require("passport");
 const cors = require("cors");
@@ -30,17 +30,24 @@ app.use(passport.session());
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongoose.connect(process.env.ONLINE_ADMIN)
-.then(()=> console.log('Database connected'))
+mongoose.connect(process.env.ONLINE_ADMIN || process.env.ADMIN)
+.then(()=>{
+ if(process.env.ONLINE_ADMIN){
+     console.log("Connected to online database");
+ 
+}else {
+    console.log("Connected to local database");
+}
+})
 .catch(err => console.log(err))
 mongoose.set('strictQuery', false);
 
-app.use('/', Registroute);
-app.use('/Pat',Patroute);
-app.use('/Doc',Docroute)
+app.use('/register', RegisterRoute);
+app.use('/Pat',PatientRoute);
+app.use('/Doc',DoctorRoute)
 app.use('/reacherDept',DeptRoute)
-app.use('/admin',Adminroute)
-
+app.use('/admin',AdminRoute)
+// swxd
 
 Port= 4000;
 app.listen(Port, function(){
