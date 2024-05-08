@@ -1,0 +1,58 @@
+.inputWithFullName{
+    margin-left: 135px;
+}
+.inputWithDepartHead{
+    margin-left: 145px;
+    padding: 8px;
+    height: 10px;
+}
+.inputWithDepartHead{
+    height: 10px;
+    margin-bottom: 20px;
+}
+.custom-input {
+    height: 4px;
+}
+.inputWithdeptName{
+    margin-left: 145px;
+    padding: 8px;
+    height: 20px;
+}
+.departStateName{
+    margin-left: 95px;
+    padding: 8px;
+    margin-top: 25px;
+    height: 20px;
+}
+.box{
+    flex: 1;
+}
+.clinic-state{
+    flex: 1;
+    top: 60px;
+    margin-left: 149px;
+    padding: 8px;
+    margin-top: 1px;
+    margin-bottom: 20px;
+    height: 20px;
+}
+.clinic-state-lable{
+    flex: 1;
+    top: 60px;
+    margin-left: 50px;
+    padding: 8px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    height: 1px;
+}
+.inputWithEMPName{
+    margin-left: 165px;
+    padding: 8px;
+    height: 20px;
+}
+.inputWithEMPPhoneno{
+    margin-left: 166px;
+    padding: 8px;
+    height: 20px;
+    margin-bottom: 20px;
+}

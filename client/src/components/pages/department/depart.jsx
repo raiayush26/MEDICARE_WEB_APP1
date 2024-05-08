@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import axios from 'axios';
 import Sidebar from "../../Sidebar/Sidebar";
+import './depart.css'
 function ReacherDept() {
   const [deptname,setdeptname]= useState('');
   const [deptHead,setdeptHead] = useState(' ');
@@ -45,18 +46,21 @@ function ReacherDept() {
         <h1 class="h3 mb-3 mb-4 fw-normal" >Add Clinic</h1>   
 
         <div class="form-floating">
-          <input type="text" name="deptname" class="form-control bottom" id="floatingInput1" placeholder="Department name:" onChange={(e)=>{setdeptname(e.target.value)}} required autoFocus/>
+          <input type="text" name="deptname" style={{ height: '5px' }} class="form-control bottom inputWithdeptName" id="floatingInput1" placeholder="Department name:" onChange={(e)=>{setdeptname(e.target.value)}} required autoFocus/>
           <label htmlFor="floatingInput1">Department name:</label>
         </div>
       
       <div class="form-floating">
-        <input type="text" name="deptHead" class="form-control bottom" id="floatingInput2"  onChange={(e)=>{setdeptHead(e.target.value)}} placeholder="Department Head"required/>
-        <label htmlFor="floatingInput2">Department Head</label>
+        <input type="text" name="deptHead" style={{ height: '5px' }}class="form-control bottom inputWithDepartHead custom-input" id="floatingInput2"  onChange={(e)=>{setdeptHead(e.target.value)}} placeholder="Department Head"required/>
+        
+        <label htmlFor="floatingInput2"  >Department Head</label>
       </div>
       <div class="form-floating">
-        <div>
-          <select name="state" id="state"onChange={(e)=>{setdeptcity(e.target.value)}} class="form-control bottom ">
-            <option value="">State / UT *</option>
+        <div className='box'>
+        
+            <option value="" className='clinic-state-lable'>State / UT *</option>
+          <select name="state" id="state"onChange={(e)=>{setdeptcity(e.target.value)}} class="form-control bottom clinic-state  ">
+            <label htmlFor="state">Clinic State:-</label>
                                         <option value="Andaman">Andaman &amp; Nicobar Islands</option>
                                         <option value="Andhra_Pradesh">Andhra Pradesh</option>
                                         <option value="Arunachal_Pradesh">Arunachal Pradesh</option>
@@ -95,23 +99,24 @@ function ReacherDept() {
                                         <option value="Uttarakhand">Uttarakhand</option>
                                         <option value="West_Bengal">West Bengal</option>
                                 </select>
+                                
         </div>
 
       </div>
       <div class="form-floating">
-        <input type="number" min="0" step="1" onChange={(e)=>{setmemindept(e.target.value)}}name="empl"class="form-control bottom" id="floatingNumber1" placeholder="No Of Employement"required/>
-        <label htmlFor="floatingNumber1" >No Of Employement</label>
+        <input type="number" min="0" step="1" style={{ height: '15px' }} onChange={(e)=>{setmemindept(e.target.value)}}name="empl"class="form-control bottom inputWithEMPName" id="floatingNumber1" placeholder="No Of Employement"required/>
+        <label htmlFor="floatingNumber1" >No Of Employment</label>
       </div>
       <div class="form-floating">
-        <input type="time" min="0" step="1" name="time" onChange={(e)=>{setopen(e.target.value)}}class="form-control bottom" id="floatingNumber1" required/>
+        <input type="time" min="0" step="1" name="time" style={{ height: '15px' }} onChange={(e)=>{setopen(e.target.value)}}class="form-control bottom inputWithFullName" id="floatingNumber1" required/>
         <label htmlFor="floatingNumber1" >Opening Time</label>
       </div> 
       <div class="form-floating">
-        <input type="time" min="0" step="1" name="Cosingtime" onChange={(e)=>{setclose(e.target.value)}}class="form-control bottom" id="floatingNumber1" required/>
+        <input type="time" min="0" step="1" name="Cosingtime" style={{ height: '15px' }}  onChange={(e)=>{setclose(e.target.value)}}class="form-control bottom inputWithFullName" id="floatingNumber1" required/>
         <label htmlFor="floatingNumber1" >Closing  Time</label>
       </div> 
       <div class="form-floating">
-        <input type="tel" min="0" step="1" name="phone"class="form-control bottom" id="floatingNumber1" onChange={(e)=>{setdeptno(e.target.value)}}placeholder="Department Phoneno"required/>
+        <input type="tel" min="0" step="1" name="phone" style={{ height: '15px' }} class="form-control bottom inputWithEMPPhoneno" id="floatingNumber1" onChange={(e)=>{setdeptno(e.target.value)}}placeholder="Department Phoneno"required/>
         <label htmlFor="floatingNumber1" >Department Phoneno</label>
       </div>
       
