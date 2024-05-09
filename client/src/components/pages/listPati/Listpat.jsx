@@ -10,10 +10,12 @@ const b = 'null'
 function Listpat() {
           const [Patients,setPatient] = useState([]);
           const getPatient =async() => {
-                    try {const res = await axios.get('http://localhost:4000/Pat/Patients').then((res) =>setPatient(res.data));}
+                    try { await axios.get('http://localhost:4000/Pat/Patients').then((res) =>setPatient(res.data));}
                      catch (error) {console.log(error);}        
           }
-          useEffect(()=>{getPatient()},[])
+          useEffect(()=>{
+            // eslint-disable-next-line
+            getPatient()},[])
   return (
           <>
           <Sidebar/>
@@ -24,7 +26,7 @@ function Listpat() {
                     <summary>Here are the list of all patient</summary>
                     <table id="customers" >
                     <tr>
-                              <th>Patient Name</th><th>Patient Age</th><th>Patient Sex</th><th>Patient BloodGroup</th><th>Patient Area</th><th>Patient Disease</th><th>Patient Number</th>
+                              <th>Patient Name</th><th>Patient Age</th><th>Patient Sex</th><th>Patient BloodGroup</th><th>Patient Area</th><th>Patient Disease</th><th>Patient Number</th><th>Patient Email-ID</th>
                     </tr>
                                         {
                                         Patients.map((pat=>
@@ -41,27 +43,14 @@ function Listpat() {
                                                             {(pat.patientPlace == null) ?  <td>nill</td> : <td>{pat.patientPlace}</td>}
                                                             {(pat.patientDisease == null) ?  <td>nill</td> : <td>{pat.patientDisease}</td>}
                                                             {(pat.patientNumber == null) ?  <td>0</td> : <td>{pat.patientNumber}</td>}
+                                                            {(pat.patientEmail == null) ?  <td>null</td> : <td>{pat.patientEmail}</td>}
                                                           
                                         </tr>
                                         ))}
 
                     </table>
                     </details>
-                    {/* <IsEmpty value ={Patients}
-                    yes="EmptyList"
-                    no={()=>(
-                        <tr>
-                        <Map collection={Patients} iteratee={ pat =>{(pat.patientName == null) ?  <td>null</td> : <td>{pat.patientName}</td>}} />
-                        <Map collection={Patients} iteratee={ pat =>{(pat.patientAge == null) ?  <td>null</td> : <td>{pat.patientAge}</td>}} />
-                        <Map collection={Patients} iteratee={ pat =>{(pat.patientSex == null) ?  <td>null</td> : <td>{pat.patientSex}</td>}} />
-                        <Map collection={Patients} iteratee={ pat =>{(pat.patientBlood == null) ?  <td>null</td> : <td>{pat.patientBlood }</td>}} />
-                         </tr>
-                        
-                    )
-
-                    }>
-
-                    </IsEmpty> */}
+                    
                 </div>
           </div>
           </>

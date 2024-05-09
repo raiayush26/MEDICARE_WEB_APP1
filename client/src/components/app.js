@@ -4,7 +4,7 @@ import Register from "./pages/Register/register";
 import Login from "./pages/login/login";
 import Failure from "./pages/failure/failure";
 import Success from "./pages/success/success";
-import Admin from "./pages/admin/admin";
+// import Admin from "./pages/admin/admin";
 import AdLogin from "./pages/admin/Login";
 import Patient from "./pages/patient/Patient";
 import ReacherDept from "./pages/AddClinic/depart";
