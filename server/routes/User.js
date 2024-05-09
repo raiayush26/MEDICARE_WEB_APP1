@@ -56,14 +56,14 @@ approuter.post("/adminLogin",async function(req,res){
         console.log(reqEmail);
         console.log(reqPassword);
         const item = await User.findOne({username: reqEmail});
-        console.log("yeha pe iaga"+item);
+        const {username, password} = item;
         if(item === null){
             res.json("no")
         }else{
         const savePassword = item.password;
-        if(bcrypt.compareSync(reqPassword, savePassword) === true){
+        if(bcrypt.compareSync(reqPassword, password) === true){
                 res.status(200).json(reqEmail)
-        }else if(bcrypt.compareSync(reqPassword, savePassword) === false){
+        }else if(bcrypt.compareSync(reqPassword, password) === false){
             res.json("false");
         }
     }

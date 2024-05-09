@@ -7,6 +7,7 @@ router.post('/post', async (req, res)=>{
     try{
         console.log(req.body);
         const plainPassword = req.body.password;
+        
         const hashPassword = bcrypt.hashSync(plainPassword, 7);
         let FullName = req.body.fName + " " + req.body.lName;
         const newItem = new register({
@@ -44,20 +45,25 @@ router.get("/:email", async(req, res) => {
         res.json(error);
     }
 })
-router.get("/login", async (req, res) => {
+router.post("/login", async (req, res) => {
     console.log("login");
     try {
         const reqEmail = req.body.email;
         const reqPassword = req.body.password;
+        console.log(reqPassword);
         const item = await register.findOne({username: reqEmail});
-        console.log(item);
+        const {username, Password} = item;
+        console.log("username:- "+username);
+        console.log("Password "+ Password);
         if(item === null){
             res.json("no")
         }else{
-        const savePassword = item.password;
-        if(bcrypt.compareSync(reqPassword, savePassword) === true){
+        
+        if(bcrypt.compareSync(reqPassword, Password) === true){
+            console.log("true");
                 res.status(200).json(reqEmail)
-        }else if(bcrypt.compareSync(reqPassword, savePassword) === false){
+        }else if(bcrypt.compareSync(reqPassword, Password) === false){
+            console.log("false");
             res.json("false");
         }
     }

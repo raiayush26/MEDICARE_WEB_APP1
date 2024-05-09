@@ -3,7 +3,7 @@ import React, {useState, useEffect} from "react";
 import {useLocation} from 'react-router-dom';
 import './succes.css'
 import SuccessHeader from "./successHeader";
-import Item from "./listItem";
+import Item from "../../ListItem/ListItem";
 import DocPlace from "./docPlace"
 import ClinicPlace from "./ClinicPlace";
 import Card from "./Card";
@@ -15,13 +15,13 @@ let foundEntry = {};
 function Success() {
     const location = useLocation();
     const [entries,setEntries] = useState([]);
-    const [docAreas,setdocArea] = useState([]);
-    const [cilAreas,setcilArea] = useState([]);
+    const [DoctorArea,setDoctorArea] = useState([]);
+    const [cilAreas,setClinicArea] = useState([]);
     const [Area,setArea] = useState(null);
-    const [Area2,setArea2] = useState(null);
+    
     const emails = location.state.UserName ;
-    const [doitem,setitem] = useState(1)
-    const [cilitem,setcilitem] = useState(1)
+    const [DoctorItem,setDoctorItem] = useState(1)
+    const [ClinicItem,setClinicItem] = useState(1)
     const [isLoading, setIsLoading] = useState(false);
     // const loading = () => setIsLoading(!isLoading);
     useEffect(() => {
@@ -43,28 +43,29 @@ function Success() {
             }
         }
         getEntry();
+        // eslint-disable-next-line
     }, [])
 
     useEffect(() => {
         setIsLoading(true);
         const timeID = setTimeout(() => {
-        async function getCinicPlace() {
+        async function getClinicPlace() {
             try {
                 if (Area === null) {
-                    setcilitem(0)
+                    setClinicItem(0)
                 } else {
-                    const cils = await axios.get(`http://localhost:4000/reacherDept/dept/${Area}`)
-                    console.log(cils.data)
-                    if (cils.data === "Empty") {
+                    const Clinic = await axios.get(`http://localhost:4000/clinic/clinic/${Area}`)
+                    console.log(Clinic.data)
+                    if (Clinic.data === "Empty") {
                         console.log("yes");
-                        setcilitem(0)
+                        setClinicItem(0)
                     } else {
-                        if (cils.data.length === 0) {
+                        if (Clinic.data.length === 0) {
                             console.log("Array is null");
-                            setcilitem(0)
+                            setClinicItem(0)
                         } else {
-                            setcilArea(cils.data)
-                            setcilitem(1)
+                            setClinicArea(Clinic.data)
+                            setClinicItem(1)
                         }
                     }
                 }
@@ -77,18 +78,18 @@ function Success() {
             // console.log(Area);
             try {
                 if (Area === null) {
-                    setitem(0)
+                    setDoctorItem(0)
                 } else {
                     const res = await axios.get(`http://localhost:4000/Doc/doc/${Area}`)
                     if (res.data === "Empty") {
-                        setitem(0)
+                        setDoctorItem(0)
                     } else {
                         if (res.data.length === 0) {
                             console.log("Array is null");
-                            setitem(0)
+                            setDoctorItem(0)
                         } else {
-                            setdocArea(res.data)
-                            setitem(1)
+                            setDoctorArea(res.data)
+                            setDoctorItem(1)
                         }
                     }
                 }
@@ -97,7 +98,7 @@ function Success() {
             }
         }
         getDoctorPlace();
-        getCinicPlace()
+        getClinicPlace()
         setIsLoading(false);
     }, 2000);
     return () => {clearTimeout(timeID);  };
@@ -105,6 +106,7 @@ function Success() {
     }, [Area]);
 useEffect(() => {
     console.log(entries);
+    // eslint-disable-next-line
 }, [foundEntry])
     const Search = (e) => {
         setArea("");
@@ -128,7 +130,7 @@ useEffect(() => {
             <div className="area-selector">
                 <div className="search-btn">
                     <div>
-                        <h5>Setect the State</h5>
+                        <h5>Select the State</h5>
                     </div>
                 </div>
                 <select
@@ -181,7 +183,7 @@ useEffect(() => {
             <>
             <DocPlace place={(Area)}/>
             <div className="doc-place">
-                {(doitem === 1)
+                {(DoctorItem === 1)
                     ? <table id="cust">
                             <tr>
                                 <th>Doctor Full name</th>
@@ -192,13 +194,13 @@ useEffect(() => {
                                 <th>Doctor Area
                                 </th>
                             </tr>
-                            {docAreas.map((doc => <tr>
+                            {DoctorArea.map((doc => <tr>
                                 {(doc.docName == null)
                                     ? <td>null</td>
                                     : <td>{doc.docName}</td>}
-                                {(doc.docSpecilization == null)
+                                {(doc.docSpecialization == null)
                                     ? <td>null</td>
-                                    : <td>{doc.docSpecilization}</td>}
+                                    : <td>{doc.docSpecialization}</td>}
                                 {(doc.Year == null)
                                     ? <td>null</td>
                                     : <td>{doc.Year}</td>}
@@ -219,7 +221,7 @@ useEffect(() => {
             </div>
             <ClinicPlace place ={(Area)}/>
             <div className="doc-place">
-                {(cilitem === 1)
+                {(ClinicItem === 1)
                     ? <table id="cust">
                             <tr>
                                 <th>Name of Department</th>
@@ -231,6 +233,7 @@ useEffect(() => {
                                 <th>ClosingTime</th>
                             </tr>
                             {cilAreas.map((cil => <tr>
+                                
                                 {(cil.departmentName == null)
                                     ? <td>null</td>
                                     : <td>{cil.departmentName}</td>}

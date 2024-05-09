@@ -8,14 +8,14 @@ Patroute.post('/Patient', async (req, res)=>{
            var  place =  _.toLower(req.body.place);
 
           const newPatient = new Patient({
-                    patientName: req.body.patName,
-                    patientAge: req.body.patAge,
-                    patientSex: req.body.patSex,
-                    patientDisease: req.body.patDisease,
-                    patientEmail: req.body.patEmail,
-                    patientBlood: req.body.patBlood,
-                    patientNumber: req.body.patNumber,
-                    patientPlace: place 
+                    patientName: req.body.PatientName,
+                    patientAge: req.body.PatientAge,
+                    patientSex: req.body.PatientSex,
+                    patientDisease: req.body.PatientDisease,
+                    patientEmail: req.body.PatientEmail,
+                    patientBlood: req.body.PatientBlood,
+                    patientNumber: req.body.PatientPhoneNumber,
+                    patientPlace: req.body.PatientState
                     })    
                     // save
           const save = await newPatient.save()

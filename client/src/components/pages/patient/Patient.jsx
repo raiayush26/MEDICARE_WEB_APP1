@@ -1,46 +1,53 @@
 import React from 'react'
 import { useState } from 'react';
-import { NavLink, useNavigate, useLocation } from "react-router-dom";
+import {useNavigate, useLocation } from "react-router-dom";
 import axios from 'axios';
 import Sidebar from "../../Sidebar/Sidebar";
 import './Patient.css';
+import Item from '../../ListItem/ListItem';
 function Patient() {
   const location =useLocation();
   const firstName = location.state.firstName;
   const lastName = location.state.lastName
-  const [patName,setpatName]= useState(firstName+" "+lastName);
-  const [patAge,setpatAge]= useState( );
-  const [patSex,setpatSex]= useState('');
-  const [patBlood,setpatBlood]= useState('');
-  const [patEmail,setpatEmail]= useState(location.state.email1);
-  const [patDisease,setpatDisease]= useState('');
-  const [patno,setpatno]= useState();
-  const [patState,setpatState]= useState();
-  const [entry,setEntry]= useState([]);
+  const [PatientName,SetPatientName]= useState(firstName+" "+lastName);
+  const [PatientAge,setPatientAge]= useState( );
+  const [PatientSex,setPatientSex]= useState('');
+  const [PatientBloodGroup,setPatientBloodGroup]= useState('');
+  // const [patEmail,setpatEmail]= useState(location.state.email1);
+  const [patDisease,setPatientDisease]= useState('');
+  const [PatientPhoneNo,setPatientPhoneNo]= useState();
+  const [PatientState,setPatientState]= useState();
+  const [,setEntry]= useState([]);
   const navigate = useNavigate();
-  const [email,setEmail] = useState('');
+  
   const Email = location.state.Email;     
  
-  
+  const Search = (e) => {
+    setPatientState("");
+    setPatientState(e.target.value);
+
+}
+
   const addItem = async() => {
     //  e.preventDefault();
     
      try {
-      console.log(patBlood);
+      console.log(PatientBloodGroup);
       console.log(Email);
+      console.log(PatientState);
        const res = await axios.post(`http://localhost:4000/Pat/Patient`,
        {
-        patName: patName,
-        patAge:patAge,
-        patSex:patSex,
-        patBlood:patBlood,
-        patEmail:Email,
-        patDisease:patDisease,
-        patNumber:patno,
-        place:patState
+        PatientName: PatientName,
+        PatientAge:PatientAge,
+        PatientSex:PatientSex,
+        PatientBlood:PatientBloodGroup,
+        PatientEmail:Email,
+        PatientDisease:patDisease,
+        PatientPhoneNumber:PatientPhoneNo,
+        PatientState:PatientState
       })
         setEntry((prev) => [...prev, res.data]);
-        console.log(email);
+       
         navigate("/success",{state: {UserName : Email}});
      } catch (error) {
        console.error(error);
@@ -55,71 +62,75 @@ function Patient() {
       <h1 class="h3 mb-3 mb-4 fw-normal">Patient Form </h1>   
   
       <div class="form-floating">
-        <input type="text" name="patName" value={firstName+" "+lastName}  class="form-control bottom inputWithFullName" id="floatingInput1" placeholder="Patient Full name:" onChange={(e)=>{setpatName(e.target.value)}}required autoFocus/>
+        <input type="text" name="PatientName" value={firstName+" "+lastName}  class="form-control bottom inputWithFullName" id="floatingInput1" placeholder="Patient Full name:" onChange={(e)=>{SetPatientName(e.target.value)}}required autoFocus/>
         <label htmlFor="floatingInput1">Patient Full name:</label>
       </div>
       <div class="form-floating">
-        <input type="text" name="patAge"  class="form-control bottom inputWithMargin" id="floatingInput2" placeholder="Patient's Age" onChange={(e)=>{setpatAge(e.target.value)}}required/>
+        <input type="text" name="PatientAge"  class="form-control bottom inputWithMargin" id="floatingInput2" placeholder="Patient's Age" onChange={(e)=>{setPatientAge(e.target.value)}}required/>
         <label htmlFor="floatingInput2">Patient's Age</label>
       </div>
       <div class="form-floating">
-        <input type="text" name="patSex" class="form-control bottom inputWithMargin" id="floatingInput2" placeholder="Sex"  onChange={(e)=>{setpatSex(e.target.value)}}required/>
+        <input type="text" name="PatientSex" class="form-control bottom inputWithMargin" id="floatingInput2" placeholder="Sex"  onChange={(e)=>{setPatientSex(e.target.value)}}required/>
         <label htmlFor="floatingInput2">Patient's Sex</label>
       </div>
       <div class="form-floating">
-          <input type="text" name="patBlood"class="form-control bottom inputWithMargin" id="floatingBlood " onChange={(e)=>{setpatBlood(e.target.value)}}placeholder="Blood group"required/>
+          <input type="text" name="PatientBloodGroup"class="form-control bottom inputWithMargin" id="floatingBlood " onChange={(e)=>{setPatientBloodGroup(e.target.value)}}placeholder="Blood group"required/>
           <label htmlFor="floatingBlood ">Blood group</label>
       </div>
       <div class="form-floating">
-        <input type="text" name="patDisease"class="form-control bottom inputWithMargin" id="floatingdisease" onChange={(e)=>{setpatDisease(e.target.value)}}placeholder="Patient Disease"required/>
+        <input type="text" name="patDisease"class="form-control bottom inputWithMargin" id="floatingdisease" onChange={(e)=>{setPatientDisease(e.target.value)}}placeholder="Patient Disease"required/>
         <label htmlFor="floatingdisease">Patient Disease</label>
     </div>
     <div class="form-floating">
-      <input type="tel" name="patNumber"class="form-control bottom inputWithphone" id="floatingPhone" onChange={(e)=>{setpatno(e.target.value)}} placeholder="Patient Phone Number:-"required />
+      <input type="tel" name="patNumber"class="form-control bottom inputWithphone" id="floatingPhone" onChange={(e)=>{setPatientPhoneNo(e.target.value)}} placeholder="Patient Phone Number:-"required />
       <label htmlFor="floatingPhone">Patient Phone Number:-</label>
   </div>
-      <div class="form-floating">
+      <div class="form-floating ">
       <label htmlFor="state">Patient State:-</label>
-        <select name="state" id="selectBox" onChange={(e)=>{setpatState(e.target.value)}} class="form-control bottom  inputWithstate" >
-          <option value="">State / UT *</option>
-                                      <option value="Andaman">Andaman &amp; Nicobar Islands</option>
-                                      <option value="Andhra_Pradesh">Andhra Pradesh</option>
-                                      <option value="Arunachal_Pradesh">Arunachal Pradesh</option>
-                                      <option value="Assam">Assam</option>
-                                      <option value="Bihar">Bihar</option>
-                                      <option value="Chandigarh">Chandigarh</option>
-                                      <option value="Chattisgarh">Chattisgarh</option>
-                                      <option value="Dadra_Nagar_Haveli">Dadra &amp; Nagar Haveli</option>
-                                      <option value="Daman_Diu">Daman &amp; Diu</option>
-                                      <option value="Goa">Goa</option>
-                                      <option value="Gujarat">Gujarat</option>
-                                      <option value="Haryana">Haryana</option>
-                                      <option value="Himachal_Pradesh">Himachal Pradesh</option>
-                                      <option value="Jammu_Kashmir">Jammu and Kashmir</option>
-                                      <option value="Jharkhand">Jharkhand</option>
-                                      <option value="Karnataka">Karnataka</option>
-                                      <option value="Kerala">Kerala</option>
-                                      <option value="Ladakh">Ladakh</option>
-                                      <option value="Lakshadweep">Lakshadweep</option>
-                                      <option value="Madhya_Pradesh">Madhya Pradesh</option>
-                                      <option value="Maharashtra">Maharashtra</option>
-                                      <option value="Manipur">Manipur</option>
-                                      <option value="Meghalaya">Meghalaya</option>
-                                      <option value="Mizoram">Mizoram</option>
-                                      <option value="Nagaland">Nagaland</option>
-                                      <option value="NCR">NCT OF Delhi</option>
-                                      <option value="Odisha">Odisha</option>
-                                      <option value="Puducherry">Puducherry</option>
-                                      <option value="Punjab">Punjab</option>
-                                      <option value="Rajasthan">Rajasthan</option>
-                                      <option value="Sikkim">Sikkim</option>
-                                      <option value="Tamil_Nadu">Tamil Nadu</option>
-                                      <option value="Telangana">Telangana</option>
-                                      <option value="Tripura">Tripura</option>
-                                      <option value="Uttar_Pradesh">Uttar Pradesh</option>
-                                      <option value="Uttarakhand">Uttarakhand</option>
-                                      <option value="West_Bengal">West Bengal</option>
-                              </select>
+      <select
+                    name="state"
+                    id="state"
+                    onChange={(e) => Search(e)}
+                    class="form-control bottom inputWithstate">
+                    <option value="">State / UT *
+                    </option>
+                    <Item key="1" name="Andhra Pradesh"/><Item key="2" name="Andaman"/>
+                    <Item key="3" name="Arunachal Pradesh"/>
+                    <Item key="4" name="Assam"/>
+                    <Item key="5" name="Bihar"/>
+                    <Item key="6" name="Chhaittisgarh"/>
+                    <Item key="7" name="Goa"/>
+                    <Item key="8" name="Gujarat"/>
+                    <Item key="9" name="Hariyana"/>
+                    <Item key="10" name="Himachal Pradesh"/>
+                    <Item key="11" name="Jharkhand"/>
+                    <Item key="12" name="Karnataka"/>
+                    <Item key="13" name="Kerala"/>
+                    <Item key="14" name="Madhya Pradesh"/>
+                    <Item key="15" name="Maharashtra"/>
+                    <Item key="16" name="Manipur"/>
+                    <Item key="17" name="Meghalaya"/>
+                    <Item key="18" name="Mizoram"/>
+                    <Item key="19" name="Nagaland"/>
+                    <Item key="20" name="Odisha"/>
+                    <Item key="21" name="Punjab"/>
+                    <Item key="22" name="Puducherry"/>
+                    <Item key="23" name="Rajasthan"/>
+                    <Item key="24" name="Sikkim"/>
+                    <Item key="25" name="Tamil Nadu"/>
+                    <Item key="26" name="Telangana"/>
+                    <Item key="27" name="Uttar Pradesh"/>
+                    <Item key="28" name="Uttarakhand"/>
+                    <Item key="29" name="West Bengal"/>
+                    <Item key="30" name="Andaman & Nicobar"/>
+                    <Item key="31" name="Chandigarh"/>
+                    <Item key="32" name="Dadra & Nagar Haveli and Daman & Diu"/>
+                    <Item key="33" name="Delhi"/>
+                    <Item key="34" name="Jammu & Kashmir"/>
+                    <Item key="35" name="Ladakh"/>
+                    <Item key="36" name="Lakshadweep"/>
+
+                </select>
     </div> 
       
   

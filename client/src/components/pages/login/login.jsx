@@ -14,13 +14,15 @@ function Login(){
     const handleLogin = async(e) => {
        
         try {
-            const res = await axios.get(`http://localhost:4000/register/login`,
+            const res = await axios.post(`http://localhost:4000/register/login`,
                 {
                   email: email,
                   password: password                
                  }
                 )
-            if(res.data === "no"){return Toast.error("This email  is not registered with us ")}
+                console.log(res.data)
+            if(res.data === "no"){
+                return Toast.error("This email  is not registered with us ")}
 
             if  (res.data ==="false") {return Toast.error("Password is Incorrect")} 
 
