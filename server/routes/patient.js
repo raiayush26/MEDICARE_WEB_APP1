@@ -19,7 +19,7 @@ Patroute.post('/Patient', async (req, res)=>{
                     })    
                     // save
           const save = await newPatient.save()
-                    res.status(200).json(newPatient);
+                    res.status(200).json("Patient added successfully");
                     console.log(newPatient);
           } catch (error) {
           console.log(error); 
@@ -53,6 +53,7 @@ Patroute.put('/api/Patients/:id', async (req, res)=>{
           console.log(req.params.id);
           try {
               const updateDept = await Patient.findByIdAndUpdate(req.params.id, {$set: req.body});
+              console.log(updateDept);
               res.status(200).json("Update successfully");
           } catch (error) {
               res.json(error)
@@ -64,6 +65,7 @@ Patroute.put('/updated/patient/:id', async(req,res)=>{
     console.log(req.body);
     try {
          const updatePat= await Patient.findByIdAndUpdate(req.params.id,{$set: req.body})
+         console.log(updatePat);
     } catch (error) {
         console.log(error);
     }

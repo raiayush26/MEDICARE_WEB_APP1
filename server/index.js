@@ -45,7 +45,7 @@ mongoose.set('strictQuery', false);
 app.use('/register', RegisterRoute);
 app.use('/Pat',PatientRoute);
 app.use('/Doc',DoctorRoute)
-app.use('/reacherDept',DeptRoute)
+app.use('/clinic',DeptRoute)
 app.use('/admin',AdminRoute)
 // swxd
 

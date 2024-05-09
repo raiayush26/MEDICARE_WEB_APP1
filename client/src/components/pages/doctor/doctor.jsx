@@ -4,35 +4,34 @@ import axios from 'axios';
 import Sidebar from "../../Sidebar/Sidebar";
 import Header from "../home/navbar";
 import { NavLink } from 'react-router-dom';
+import  Toast  from "../toast";
+import ToastContainer from "../toastContai"
 function Doctor() {
-  const [Docname,setDocname] = useState('');
+  const [DoctorName,setDoctorName] = useState('');
   const [docSpec,setSpec] = useState();
-  const [docExper,setExper] = useState();
-  const [Docemail,setDocemail] = useState(' ');
-  const [Docno, setDocno] = useState();
-  const [docentries, setDocEntries] = useState([]);
-  const [city, setcity] = useState();
+  const [DoctorExperience,setDoctorExperience] = useState();
+  const [DoctorEmail,setDoctorEmail] = useState(' ');
+  const [DoctorPhoneNumber, setDoctorPhoneNo] = useState();
+  const [doctorEntries, setdoctorEntries] = useState([]);
+  const [State, setState] = useState();
 
   const addItem = async() => {
     //  e.preventDefault();
     
      try {
-       const res = await axios.post(`http://localhost:4000/Doc/doctor`,
+       const res = await axios.post(`http://localhost:4000/Doc/post`,
        {
-        doctorName: Docname,
-       
-        doctorSpecilization:docSpec,
-        YearofExperienc:docExper,
-        doctorEmail:Docemail,
-        doctorNumber:Docno,
-        place:city
+        doctorName: DoctorName,       
+        docSpecialization:docSpec,
+        YearExperience:DoctorExperience,
+        doctorEmail:DoctorEmail,
+        doctorNumber:DoctorPhoneNumber,
+        place:State
       })
-        console.log(res.data);
-        console.log(Docname);
-        setDocEntries((prev) => [...prev, res.data]);
-        console.log(docentries);
         
-
+        console.log(DoctorName);
+        setdoctorEntries((prev) => [...prev, res.data]);
+        Toast.info(res.data);
      } catch (error) {
        console.error(error);
      }
@@ -42,11 +41,12 @@ function Doctor() {
     <>
       <Sidebar/>
     <main class="form-signin ">
+      <ToastContainer position="bottom-center" limit={1}/>
   <form action="/docForm" method="post">    
     <h1 class="h3 mb-3 mb-4 fw-normal">Doctor Form </h1>   
 
     <div class="form-floating">
-      <input type="text" name="dname" class="form-control bottom inputWithFullName" id="floatingInput1" placeholder="Patient Full name:" onChange={(e)=>{setDocname(e.target.value)}} required autoFocus/>
+      <input type="text" name="dname" class="form-control bottom inputWithFullName" id="floatingInput1" placeholder="Patient Full name:" onChange={(e)=>{setDoctorName(e.target.value)}} required autoFocus/>
       <label for="floatingInput1">Doctor Full name:</label>
     </div>
     
@@ -55,15 +55,15 @@ function Doctor() {
       <label for="floatingInput2">Specialization</label>
     </div>
     <div class="form-floating">
-        <input type="number"  min="5" name="year"class="form-control bottom inputWith145px" id="yaer"onChange={(e)=>{setExper(e.target.value)}} placeholder="Year_of_Experience"required/>
+        <input type="number"  min="5" name="year"class="form-control bottom inputWith145px" id="year"onChange={(e)=>{setDoctorExperience(e.target.value)}} placeholder="Year_of_Experience"required/>
         <label for="year">Year of Experience</label>
     </div>
     <div class="form-floating">
-      <input type="email" name="demail"class="form-control bottom inputWithFullName" id="email" onChange={(e)=>{setDocemail(e.target.value)}}placeholder="Doctor Email id"required/>
+      <input type="email" name="demail"class="form-control bottom inputWithFullName" id="email" onChange={(e)=>{setDoctorEmail(e.target.value)}}placeholder="Doctor Email id"required/>
       <label for="email">Doctor Email id</label>
   </div>
     <div class="form-floating">
-      <input type="tel" name="dnumber"class="form-control bottom inputWithphone" id="tel" onChange={(e)=>{setDocno(e.target.value)}}placeholder="doctor_phone_number"required/>
+      <input type="tel" name="dnumber"class="form-control bottom inputWithphone" id="tel" onChange={(e)=>{setDoctorPhoneNo(e.target.value)}}placeholder="doctor_phone_number"required/>
       <label for="tel">Doctor Phone Number</label>
   </div>
     
@@ -71,7 +71,7 @@ function Doctor() {
     <div>
     <br/>
     <label htmlFor="state">Doctor State:-</label>
-      <select name="state" id="state"  onChange={(e)=>{setcity(e.target.value)}}class="form-control bottom inputWithstate">
+      <select name="state" id="state"  onChange={(e)=>{setState(e.target.value)}}class="form-control bottom inputWithstate">
         <option value="">State / UT *</option>
                                     <option value="Andaman">Andaman &amp; Nicobar Islands</option>
                                     <option value="Andhra_Pradesh">Andhra Pradesh</option>
@@ -117,7 +117,7 @@ function Doctor() {
 
    
     <button class="w-100 btn btn-lg btn-primary" type="submit" onClick={e => {addItem(e.preventDefault())}}>Add as Doctor </button>
-    <p class="mt-5 mb-3 text-muted">&copy; hostpital</p>
+    <p class="mt-5 mb-3 text-muted">&copy; hospital</p>
   </form>
 </main>
       

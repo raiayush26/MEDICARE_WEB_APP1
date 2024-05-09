@@ -3,16 +3,16 @@ import axios from 'axios';
 import Sidebar from '../../Sidebar/Sidebar'
 import { Navigate, Navigator, useNavigate } from 'react-router-dom';
 function Delclinic() {
-          const [Clinics,setCilinic]= useState([]);
+          const [Clinics,setClinic]= useState([]);
           const navigate = useNavigate();
-          const getCilic = async ()=>{
-            try {const res =await axios.get('http://localhost:4000/reacherDept/api/reacherDepts').then((res)=>setCilinic(res.data))}
+          const getClinic = async ()=>{
+            try {const res =await axios.get('http://localhost:4000/clinic/get').then((res)=>setClinic(res.data))}
              catch (error) {console.log(error);}}
-          useEffect(()=>{getCilic()},[])
+          useEffect(()=>{getClinic()},[])
 
           const jump = async(id)=>{
             try {
-                    navigate("/Co",{state: {id : id}});
+                    navigate("/modifyClinic",{state: {id : id}});
             } catch (error) {
                     console.log(error);
             }
@@ -21,9 +21,9 @@ function Delclinic() {
                     try {
                               console.log(id);
                               
-                              const res = await axios.delete(`http://localhost:4000/reacherDept/api/reacherDepts/${id}`)
-                              const newClinicslist=Clinics.filter(cil=> cil._id !==id);
-                              setCilinic(newClinicslist)
+                              const res = await axios.delete(`http://localhost:4000/clinic/clinic/${id}`)
+                              const newClinics=Clinics.filter(cil=> cil._id !==id);
+                              setClinic(newClinics)
                     } catch (error) {
                               console.log(error);
                     }
@@ -33,7 +33,7 @@ function Delclinic() {
     <>
           <Sidebar/>    
           <div className='admin'>
-          <div className="patlist"style={{left: "0px"}}>
+          <div className="patient-list"style={{left: "0px"}}>
               <table id="customers" >
               <tr><th>Name of Department</th><th>Department Head</th><th>Department Area</th><th>No of Employment</th><th>Department Phoneno</th><th>Opening Time</th><th>ClosingTime</th><th>Delete</th><th>Modifly this element</th></tr>
               {Clinics.map((cil=>

@@ -4,18 +4,18 @@ import { useState } from 'react'
 import Sidebar from '../../Sidebar/Sidebar'
 
 function Listcinic() {
-  const [Cinics,setCilinic]= useState([]);
-  const getCilic = async ()=>{
+  const [clinic,setClinic]= useState([]);
+  const getClinic = async ()=>{
     try {
-      const res =await axios.get('http://localhost:4000/reacherDept/api/reacherDepts').then((res)=>setCilinic(res.data))
-      console.log(Cinics);
+      const res =await axios.get('http://localhost:4000/clinic/get').then((res)=>setClinic(res.data))
+      console.log(clinic);
       
     } catch (error) {
       console.log(error);      
     }
   } 
   useEffect(()=>{
-    getCilic()
+    getClinic()
 
   },[])
 return (
@@ -23,13 +23,13 @@ return (
           <Sidebar/>
     
           <div className='admin'>
-                <div className="patlist">
-                    <details><summary>Here are the list of cilic</summary>
+                <div className="patient-list">
+                    <details><summary>Here are the list of Clinic</summary>
                    
                     <table id="customers" >
-                    <tr><th>Name of Department</th><th>Department Head</th><th>Department Area</th><th>No of Employment</th><th>Department Phoneno</th><th>Opening Time</th><th>ClosingTime</th></tr>
+                    <tr><th>Name of Department</th><th>Department Head</th><th>Department Area</th><th>No of Employment</th><th>Department PhoneNo</th><th>Opening Time</th><th>ClosingTime</th></tr>
                   
-                    {Cinics.map((cil=>
+                    {clinic.map((cil=>
                     
                     <tr>
                     

@@ -34,7 +34,7 @@ function About() {
 
     <p>Contact us today to schedule an appointment or learn more about our services. Your health is our commitment!</p>
 
-    <p>Sincerely,<br/> [Your Healthcare Facility Name]</p>          
+    <p>Sincerely,<br/> Medicare </p>          
                     
           </div>          
         

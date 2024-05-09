@@ -123,7 +123,7 @@ function ReacherDept() {
 
     
       <button class="w-100 btn btn-lg btn-primary" type="submit" onClick={e => {addItem(e.preventDefault())}}>New Department </button>
-      <p class="mt-5 mb-3 text-muted">&copy; hostpital</p>
+      <p class="mt-5 mb-3 text-muted">&copy; Medicare</p>
     </form>
   </main>
     

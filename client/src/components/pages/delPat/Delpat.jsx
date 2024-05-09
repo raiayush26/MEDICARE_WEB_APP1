@@ -27,7 +27,7 @@ const deletehandle= async(id)=>{
 }  
 const jump = async(id)=>{
   try {
-          navigate("/Po",{state: {id : id}});
+          navigate("/modifyPatient",{state: {id : id}});
   } catch (error) {
           console.log(error);
   }
@@ -37,7 +37,7 @@ const jump = async(id)=>{
     <>
       <Sidebar/>
     <div className="admin">
-          <div className='patlist'style={{left: "12px"}}>
+          <div className='patient-list'style={{left: "12px"}}>
                     
                     
                     <table id="customers" >

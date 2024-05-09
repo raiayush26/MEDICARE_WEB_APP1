@@ -2,22 +2,21 @@ const docrouter = require('express').Router();
 
 const Doctor = require('../models/docModel');
 
-docrouter.post('/doctor', async (req, res)=>{
-   
+docrouter.post('/post', async (req, res)=>{
           try {
-            // console.log("doct port is working");
-           
+            console.log("doctor/port is working");
           const newDoctor = new Doctor({
                     docName: req.body.doctorName,
-                    docSpecilization: req.body.doctorSpecilization,
-                    Year: req.body.YearofExperienc,
+                    docSpecialization: req.body.docSpecialization,
+                    Year: req.body.YearExperience,
                     docEmail: req.body.doctorEmail,
                     docNumber: req.body.doctorNumber,
                     docplace: req.body.place
                     })    
                     // save
           const save = await newDoctor.save()
-                //    console.log(newDoctor);
+                    res.status(200).json("Doctor added successfully");
+
           } catch (error) {
           console.log("feff"+error); 
           }
@@ -31,8 +30,6 @@ docrouter.get('/api/doctors', async (req, res)=>{
          } catch (error) {
             res.json(error)
          }
-            
-         
 })
 docrouter.get('/api/doctor/:id',async(req,res)=>{
     //   console.log(req.params.id);
@@ -48,7 +45,7 @@ docrouter.get('/api/doctor/:id',async(req,res)=>{
 docrouter.put('/updated/doctors/:id', async (req, res)=>{
     console.log("update post is working");
         //   console.log(req.params.id);
-        //   console.log(req.body);
+          console.log(req.body);
         console.log('doctor updated request is working');
           try {
               const updateDept = await Doctor.findByIdAndUpdate(req.params.id, {$set: req.body});

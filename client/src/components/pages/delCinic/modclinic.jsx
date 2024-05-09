@@ -1,84 +1,71 @@
 import React, { useState ,useEffect} from 'react'
 import axios from 'axios';
-import Sidebar from '../../Sidebar/Sidebar'
+
 import { useNavigate } from 'react-router-dom';
-import {Location, useLocation} from 'react-router-dom';
-function Modclinic() {
+import { useLocation} from 'react-router-dom';
+function ModifyClinic() {
           const location =useLocation();
-         
-          const [Clinic,setCilinic] = useState([]);
-          const [Whattesxt,setWhattesxt] = useState('')
-          const [Upadetedtesxt,setUpadetedtext] = useState(" ")
+          const [ChangeText,setChangeText] = useState('')
+          const [UpdatedText,setUpdatedText] = useState(" ")
           const [showForm, setShowForm] = useState(false);
-          const [Clinicid,setClinicid] = useState('');
+          const [ClinicId,setClinicId] = useState('');
           const navigate = useNavigate();
           const  handleChange=(e)=>{
                     e.preventDefault(e);
                         const Value = e.target.value
-                        setWhattesxt(Value)
+                        setChangeText(Value)
           }
           const UpdatePatient = async(e)=>{
                     try {
-                              const placeholder= Whattesxt;
+                              const placeholder= ChangeText;
                               console.log("place "+placeholder);
                               switch (placeholder) {
                                 case ("departmentName"):
-                                          console.log(Clinicid);
-                                          
-                                               const res =await axios.put(`http://localhost:4000/reacherDept/api/reacherDepts/${Clinicid}`,{departmentName:Upadetedtesxt}).then(navigate("/Modclinic"))
-                                          break;
-
+                                     await axios.put(`http://localhost:4000/clinic/${ClinicId}`,{departmentName:UpdatedText}).then(navigate("/Modclinic"))
+                                    break;
                                 case ("departmentHead"):
-                                          console.log("Age");
-                                          const res1 =await axios.put(`http://localhost:4000/reacherDept/api/reacherDepts/${Clinicid}`,{patientAge:Upadetedtesxt}).then(navigate("/Modclinic"))
-                                    
-                                           break;
+                                          await axios.put(`http://localhost:4000/clinic/${ClinicId}`,{patientAge:UpdatedText}).then(navigate("/Modclinic"))
+                                    break;
                                 case ("departmentEmployment"):
-                                          console.log("patientDisease");
-                                          const res2 =await axios.put(`http://localhost:4000/reacherDept/api/reacherDepts/${Clinicid}`,{departmentEmployment:Upadetedtesxt}).then(navigate("/Modclinic"))
-                               
-                                          break;
+                                          await axios.put(`http://localhost:4000/clinic/${ClinicId}`,{departmentEmployment:UpdatedText}).then(navigate("/Modclinic"))
+                                    break;
                                 case ("departmentphoneno"):
                                           console.log("patientNumber");
-                                          const res3 =await axios.put(`http://localhost:4000/reacherDept/api/reacherDepts/${Clinicid}`,{departmentphonenor:Upadetedtesxt}).then(navigate("/Modclinic"))
-                                 
-                                          break;   
-                                case ("Opentime"):
-                                          console.log("DepartmentOpeningtime");
-                                          const res4 =await axios.put(`http://localhost:4000/reacherDept/api/reacherDepts/${Clinicid}`,{Opentime:Upadetedtesxt}).then(navigate("/Modclinic"))
-                                
-                                          break;     
-                                case ("Closetime"):
-                                          console.log("patientPlace");
-                                          const res5 =await axios.put(`http://localhost:4000/reacherDept/api/reacherDepts/${Clinicid}`,{Closetime:Upadetedtesxt}).then(navigate("/Modclinic"))
+                                         await axios.put(`http://localhost:4000/clinic/${ClinicId}`,{departmentphonenor:UpdatedText}).then(navigate("/Modclinic"))
+                                   break;   
+                                case ("OpeningTime"):
+                                        await axios.put(`http://localhost:4000/clinic/${ClinicId}`,{DepartmentOpeningtime:UpdatedText}).then(navigate("/Modclinic"))
+                                      break;     
+                                case ("ClosingTime"):
+                                          await axios.put(`http://localhost:4000/clinic/${ClinicId}`,{DepartmentClosingtime:UpdatedText}).then(navigate("/Modclinic"))
                                           break
                                 default:
                                     console.log("no");
                               }
                     } catch (error) {console.log(error);}
           }
-          const getCilic = async ()=>{
+          const getClinic = async ()=>{
                     try {
                     const id =location.state.id;
-                    setClinicid(id)
-                    const res =await axios.get('http://localhost:4000/reacherDept/api/reacherDepts').then((res)=>setCilinic(res.data))}
+                    setClinicId(id)
+                    const res =await axios.get('http://localhost:4000/clinic/get').then((res)=>console.log(res.data))}
                      catch (error) {console.log(error);}}
-                  useEffect(()=>{getCilic(); renderUpdateForm1(); renderUpdateForm2()},[])
+                  useEffect(()=>{getClinic(); renderUpdateForm1(); renderUpdateForm2()},[])
           const renderUpdateForm1= () => {
             return (<form className = '' >
-               <label for="uniqe">This Text is have to Modifly:-</label>
-               <input type="text" className="text-flied" id='uniqe' name ="ayush" onChange={e=>{setUpadetedtext(e.target.value)}} placeholder ={Whattesxt} autoComplete="false"/> 
+               <label for="unique">This Text is have to Modify:-</label>
+               <input type="text" className="text-flied" id='unique' name ="ayush" onChange={e=>{setUpdatedText(e.target.value)}} placeholder ={ChangeText} autoComplete="false"/> 
                <button type="submit" style={{margin: "12px 12px 12px 12px 12px"}} className='del' onClick={e=>{e.preventDefault() ; UpdatePatient()}} >Submit</button>
             </form>)
           }
-          const timeformate=()=>{
+          const timeFormate=()=>{
               setShowForm(!showForm)
             
           }
         const renderUpdateForm2= () => {
           return (<form className = '' >
-          <label for="uniqe">This Text is have to Modifly:-</label>
-          <input type="time" className="text-flied" id='uniqe' name ="ayush" onChange={e=>{setUpadetedtext(e.target.value)}} placeholder ={Whattesxt} autoComplete="false"/> 
+          <label for="unique">This Text is have to Modify:-</label>
+          <input type="time" className="text-flied" id='unique' name ="ayush" onChange={e=>{setUpdatedText(e.target.value)}} placeholder ={ChangeText} autoComplete="false"/> 
           <button type="submit" style={{margin: "12px 12px 12px 12px 12px"}} className='del' onClick={e=>{e.preventDefault() ; UpdatePatient()}} >Submit</button>
        </form>)
             
@@ -86,46 +73,47 @@ function Modclinic() {
   return (
     <div>
           <>
-      <div className="patlist">
-          <h5> Modifly the paticular item</h5>
+      <div className="patient-list">
+          <h5> Modify the particular item</h5>
             <form className='form-doc'>
                     
+              <label for="departmentName">Department Name</label>
                   <input type="radio" value="departmentName"  id='departmentName' 
                     onClick={handleChange} name="departmentName"/>                  
-                  <label for="departmentName">Department Name</label>
                     
+                    <label for="departmentHead">Department Head</label>
                   <input type="radio" value="departmentHead" 
                     onChange={handleChange} name="departmentHead"/>
-                  <label for="departmentHead">Department Head</label>
-
+                  
+                  <label for="departmentArea">Department Area</label>
                   <input type="radio" value="departmentArea" 
                     onChange={handleChange} name="departmentArea"/>
-                  <label for="departmentArea">Department Area</label>
-
+                  
+                  <label for="departmentEmployment">Department Employment</label>
                   <input type="radio" value="departmentEmployment" 
                     onChange={handleChange} name="departmentEmployment"/>
-                  <label for="departmentEmployment">Department Employment</label>
+                  
 
+                  <label for="departmentphoneno">Department Phoneno</label>
                   <input type="radio" value="departmentphoneno" 
                     onChange={handleChange} name="departmentphoneno"/>
-                  <label for="departmentphoneno">Department Phoneno</label>
 
-                  <input type="radio" value="Opentime" 
-                    onChange={handleChange} name="DepartmentOpeningtime"/>
                   <label for="DepartmentOpeningtime">Department Openingtime</label>
+                  <input type="radio" value="OpeningTime" 
+                    onChange={handleChange} name="DepartmentOpeningtime"/>
 
-                  <input type="radio" value="Closetime" 
+                    <label for="DepartmentClosingtime">ClosingTime</label>
+                  <input type="radio" value="ClosingTime" 
                     onChange={handleChange} name="Closetim"/>
-                  <label for="DepartmentClosingtime">Department ClosingTime</label>
                </form>
           </div>    
           <div className="sumit-form" style={{margin: "120px 120px 120px 120px"}}>
-          {/* { Upadetedtesxt === "Opentime" ? renderUpdateForm1():renderUpdateForm()} */}
-          <button type="submit"  className='del' onClick={timeformate} >changetotime</button>
+          {/* { UpdatedText === "OpeningTime" ? renderUpdateForm1():renderUpdateForm()} */}
+          <button type="submit"  className='del' onClick={timeFormate} >Updated Time</button>
           {renderUpdateForm1()}
           {showForm && (renderUpdateForm2()) }
-               <p>what is your press is --{'>'} {Whattesxt}</p>
-               <p>You type  --{'>'} {Upadetedtesxt}</p>
+               <p>what is your press is --{'>'} {ChangeText}</p>
+               <p>You type  --{'>'} {UpdatedText}</p>
           </div>
           
         {/* </div> */}
@@ -134,4 +122,4 @@ function Modclinic() {
   )
 }
 
-export default Modclinic
+export default ModifyClinic

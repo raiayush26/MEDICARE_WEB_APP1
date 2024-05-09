@@ -18,7 +18,7 @@ function Listpat() {
           <>
           <Sidebar/>
     <div className="admin">
-          <div className='patlist'>
+          <div className='patient-list'>
                     
                     <details>
                     <summary>Here are the list of all patient</summary>

@@ -1,4 +1,4 @@
-.patlist{
+.patient-list{
           position: absolute;
           left: 0;
            top: 45px;
@@ -74,7 +74,7 @@
   background-color: #200688;
   color: white;
 }
-/* .patlist details{
+/* .patient-list details{
   position: relative;
   right: 300px;
 } */

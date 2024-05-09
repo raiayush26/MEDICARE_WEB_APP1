@@ -7,7 +7,7 @@ import Success from "./pages/success/success";
 import Admin from "./pages/admin/admin";
 import AdLogin from "./pages/admin/Login";
 import Patient from "./pages/patient/Patient";
-import ReacherDept from "./pages/department/depart";
+import ReacherDept from "./pages/AddClinic/depart";
 import Doctor from "./pages/doctor/doctor";
 import Footer from "./Footer/footer";
 import NoPage from "./pages/NoPage/nopage";
@@ -18,12 +18,11 @@ import Deldoc from "./pages/delDoc/Deldoc";
 import Delclinic from "./pages/delCinic/Delclinic";
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Listpat from "./pages/listPati/Listpat";
-import Moddoc from "./pages/modDoc/Moddoc";
 import ModiflyPat from "./pages/delPat/ModiflyPat";
 import Modclinic from "./pages/delCinic/modclinic";
-
-import Mod from "./pages/modDoc/Modifly"
+import ModifyDoctor from "./pages/modDoc/ModifyDoctor";
 import About from "./pages/About/About";
+import ModDocTable from "./pages/modDoc/ModDocTable";
 
 function App(){
     return(
@@ -50,10 +49,11 @@ function App(){
                     <Route path = "/Deldoc" element={<Deldoc/>}/>
                     <Route path = "/Delclinic" element={<Delclinic/>}/>
                     <Route path = "/Modclinic" element={<Delclinic/>}/>
-                    <Route path = "/ModDoc" element={<Moddoc/>}/>
-                    <Route path = "/Mo" element={<Mod />}/>
-                    <Route path = "/Po" element={<ModiflyPat />}/>
-                    <Route path = "/Co" element={<Modclinic />}/>
+                   
+                   <Route path = "/modifyDocTable" element={<ModDocTable/>}/>
+                    <Route path = "/modifyDoc" element={<ModifyDoctor/>}/>
+                    <Route path = "/modifyPatient" element={<ModiflyPat />}/>
+                    <Route path = "/modifyClinic" element={<Modclinic />}/>
                     <Route path= '*' element ={<NoPage/>}/>
                     
                     

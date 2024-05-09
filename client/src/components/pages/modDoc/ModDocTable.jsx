@@ -3,7 +3,7 @@ import React, { useState ,useEffect} from 'react'
 import { Navigate, Navigator, useNavigate } from 'react-router-dom';
 import Sidebar from '../../Sidebar/Sidebar'
 
-function Moddoc(props) {
+function ModDocTable(props) {
        
         const navigate = useNavigate();
         const [Doctors,setDoctor]= useState([]);
@@ -15,25 +15,25 @@ function Moddoc(props) {
                     getDoctor()
         },[])
         const jump = async(id)=>{
-                try {navigate("/Mo",{state: {id : id}});}
+                try {navigate("/modifyDoc",{state: {id : id}});}
                 catch (error) {console.log(error);}
         }
            
   return (<>
         <Sidebar/>
         <div className='admin'>
-                <div className="patlist">
+                <div className="patient-list">
                         <summary>Here are the list of all Doctor</summary>
                         {Doctors == null  ? <h1>null</h1> : 
                         <table id="customers" >
                                 
-                        <tr><th>Doctor Full name</th><th>Speclization</th><th>Year of Experience</th><th>Doctor Email</th><th>Doctor Number</th><th>Doctor Area </th><th>Modifly</th></tr>
+                        <tr><th>Doctor Full name</th><th>Specialization</th><th>Year of Experience</th><th>Doctor Email</th><th>Doctor Number</th><th>Doctor Area </th><th>Modify</th></tr>
                         {Doctors.map((doc=>
                                 <>      
                                         <tr>
                                         {(doc.docName == null) ? <td>null</td> : <td>{doc.docName}</td>}
                                         
-                                        {(doc.docSpecilization == null) ? <td>null</td> : <td>{doc.docSpecilization}</td>}
+                                        {(doc.docSpecialization == null) ? <td>null</td> : <td>{doc.docSpecialization}</td>}
                                         {(doc.Year == null) ? <td>null</td> : <td>{doc.Year}</td>}
                                         {(doc.docEmail == null) ? <td>null</td> : <td>{doc.docEmail}</td>}
                                         {(doc.docNumber == null) ? <td>null</td> : <td>{doc.docNumber}</td>}
@@ -51,4 +51,4 @@ function Moddoc(props) {
   )
 }
 
-export default Moddoc
+export default ModDocTable

@@ -1,6 +1,6 @@
 const Deptroute = require('express').Router();
 const Department = require('../models/deptModel');
-Deptroute.post('/api/reacherDept', async (req, res)=>{
+Deptroute.post('/post', async (req, res)=>{
           try {
             
            
@@ -16,14 +16,14 @@ Deptroute.post('/api/reacherDept', async (req, res)=>{
                     })    
                     // save
           const save = await newDepartment.save()
-                    res.status(200).json(newDepartment);
+                    res.status(200).json("Department added successfully");
                     console.log(newDepartment);
           } catch (error) {
           console.log(error); 
           }
 
 })
-Deptroute.get('/api/reacherDepts', async (req, res)=>{
+Deptroute.get('/get', async (req, res)=>{
         
          try{
              const reacherDept = await Department.find({});
@@ -33,16 +33,17 @@ Deptroute.get('/api/reacherDepts', async (req, res)=>{
              
          }
 })
-Deptroute.put('/api/reacherDepts/:id', async (req, res)=>{
-        
+Deptroute.put('/:id', async (req, res)=>{
+        console.log(req.body);  
           try {
               const updateDept = await Department.findByIdAndUpdate(req.params.id, {$set: req.body});
+              console.log(updateDept);
               res.status(200).json("Update successfully");
           } catch (error) {
               res.json(error)
           }
 })
-Deptroute.get('/dept/:place',async(req,res)=>{
+Deptroute.get('/clinic/:place',async(req,res)=>{
    
     const place = req.params.place
     console.log(place);
@@ -57,7 +58,7 @@ Deptroute.get('/dept/:place',async(req,res)=>{
         console.log(error);
     }
 })
-Deptroute.delete('/api/reacherDepts/:_id', async (req,res)=>{
+Deptroute.delete('/clinic/:_id', async (req,res)=>{
         //   console.log(req.params._id);
           console.log("Deptament delete route is working");
           try {

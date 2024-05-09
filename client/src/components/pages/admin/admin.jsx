@@ -36,7 +36,7 @@ function Admin(){
          <h1 className='heading-h1'>Register</h1>
            <input className = "form-input" type="email" placeholder="email" name="email" onChange={(e)=>{setEmail(e.target.value)}}/>
            <input className = "form-input" type="password" placeholder="Password" name="password" onChange={(e)=>{setPassword(e.target.value)}} autoComplete = "false"/>
-           <button className = " btn btn-lg btn-primary" type="submit" onClick={e => {addItem(e.preventDefault())}}>Sumbit</button>
+           <button className = " btn btn-lg btn-primary" type="submit" onClick={e => {addItem(e.preventDefault())}}>Submit</button>
            {/* ><NavLink to = "/Patient">submit</NavLink> */}
          </form>
          
