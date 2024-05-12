@@ -11,9 +11,11 @@ text-align: center;
 margin-top: 50px;
 }
 .card-body{
-padding: 10px;
+      display: inline-block;
+      padding: 10px;
 }
 .card{
+display: flex;
 width: 350px;
 margin-left: 35px;
 margin-top: 75px;

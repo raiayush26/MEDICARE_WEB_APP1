@@ -15,12 +15,14 @@ Patroute.post('/Patient', async (req, res)=>{
                     patientEmail: req.body.PatientEmail,
                     patientBlood: req.body.PatientBlood,
                     patientNumber: req.body.PatientPhoneNumber,
-                    patientPlace: req.body.PatientState
+                    patientPlace: req.body.PatientState,
+                    photolink: req.body.photolink
                     })    
                     // save
+                    console.log(newPatient);
           const save = await newPatient.save()
                     res.status(200).json("Patient added successfully");
-                    console.log(newPatient);
+                    // console.log(newPatient);
           } catch (error) {
           console.log(error); 
           }

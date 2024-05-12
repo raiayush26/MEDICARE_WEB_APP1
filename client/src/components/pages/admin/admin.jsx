@@ -10,7 +10,7 @@ function Admin(){
     const navigate = useNavigate();
     const [email,setEmail] = useState();
     const [password, setPassword] = useState();
-    const [entries, setEntries] = useState([]);
+    const [, setEntries] = useState([]);
     const addItem = async() => {
   
         try {

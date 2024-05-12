@@ -8,7 +8,8 @@ import DocPlace from "./docPlace"
 import ClinicPlace from "./ClinicPlace";
 import Card from "./Card";
 import { ToastContainer, toast } from "react-toastify";
-
+import ProfilePic from "../../../images/Photo-min.jpg";
+import blank from "../../../images/blank.png";
 
 let foundEntry = {};
 
@@ -124,9 +125,18 @@ useEffect(() => {
                     <Card
                         fName={entries.patientName}
                         phoneNumber={entries.patientNumber}
-                        email={entries.patientEmail}/>
+                        email={entries.patientEmail}
+                        Age={entries.patientAge}
+                        BloodGroup={entries.patientBlood}
+                        Gender={entries.patientSex}
+                        ProfilePic={entries.photolink || blank}
+                    />
                 </div>
             </div>
+            
+        
+
+           
             <div className="area-selector">
                 <div className="search-btn">
                     <div>

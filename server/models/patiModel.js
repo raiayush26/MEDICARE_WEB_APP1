@@ -8,7 +8,8 @@ const PatientSchema = new mongoose.Schema({
           patientBlood:String,
           patientEmail:String,
           patientNumber:Number,
-          patientPlace:String
+          patientPlace:String,
+          photolink:String
 
 });
 

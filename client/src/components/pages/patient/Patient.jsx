@@ -1,5 +1,11 @@
 import React from 'react'
 import { useState } from 'react';
+// Implement the photo upload
+//  import { useRef } from "react";
+import {ref,  getDownloadURL, uploadBytes} from "firebase/storage";
+// import {uploadBytesResumable} from "firebase/storage";
+import { storage } from "../../../Firebase/firebase";
+
 import {useNavigate, useLocation } from "react-router-dom";
 import axios from 'axios';
 import Sidebar from "../../Sidebar/Sidebar";
@@ -18,8 +24,15 @@ function Patient() {
   const [PatientPhoneNo,setPatientPhoneNo]= useState();
   const [PatientState,setPatientState]= useState();
   const [,setEntry]= useState([]);
+  // Implement The UserPhoto
+  const [UserPhoto, SetUserPhoto] = useState("");
+ 
+
+  const UserPhotoFile = (e) => {
+    SetUserPhoto(e.target.files[0])
+  }
+
   const navigate = useNavigate();
-  
   const Email = location.state.Email;     
  
   const Search = (e) => {
@@ -28,14 +41,41 @@ function Patient() {
 
 }
 
+  // const addItem = async() => {
+  //   //  e.preventDefault();
+  //    try {
+  //     console.log(PatientBloodGroup);
+  //     console.log(Email);
+  //     console.log(PatientState);
+  //      const res = await axios.post(`http://localhost:4000/Pat/Patient`,
+  //      {
+  //       PatientName: PatientName,
+  //       PatientAge:PatientAge,
+  //       PatientSex:PatientSex,
+  //       PatientBlood:PatientBloodGroup,
+  //       PatientEmail:Email,
+  //       PatientDisease:patDisease,
+  //       PatientPhoneNumber:PatientPhoneNo,
+  //       PatientState:PatientState
+  //     })
+  //       setEntry((prev) => [...prev, res.data]);
+       
+  //       navigate("/success",{state: {UserName : Email}});
+  //    } catch (error) {
+  //      console.error(error);
+  //    }
+  //  }
   const addItem = async() => {
     //  e.preventDefault();
-    
      try {
       console.log(PatientBloodGroup);
       console.log(Email);
       console.log(PatientState);
-       const res = await axios.post(`http://localhost:4000/Pat/Patient`,
+      const imageRef = ref(storage, `images/${Email}/${UserPhoto.name}`);
+         console.log(imageRef);
+        await uploadBytes(imageRef, UserPhoto).then((snapshot) => {
+        getDownloadURL(snapshot.ref).then(async (downloadURL) => {
+          const res = await axios.post(`http://localhost:4000/Pat/Patient`,
        {
         PatientName: PatientName,
         PatientAge:PatientAge,
@@ -44,11 +84,15 @@ function Patient() {
         PatientEmail:Email,
         PatientDisease:patDisease,
         PatientPhoneNumber:PatientPhoneNo,
-        PatientState:PatientState
+        PatientState:PatientState,
+        photolink:downloadURL
       })
-        setEntry((prev) => [...prev, res.data]);
-       
-        navigate("/success",{state: {UserName : Email}});
+      setEntry((prev) => [...prev, res.data]);
+      navigate("/success",{state: {UserName : Email}})
+        })
+        
+      })
+      
      } catch (error) {
        console.error(error);
      }
@@ -82,9 +126,15 @@ function Patient() {
         <label htmlFor="floatingdisease">Patient Disease</label>
     </div>
     <div class="form-floating">
-      <input type="tel" name="patNumber"class="form-control bottom inputWithphone" id="floatingPhone" onChange={(e)=>{setPatientPhoneNo(e.target.value)}} placeholder="Patient Phone Number:-"required />
+      <input type="tel" name="patNumber"class="form-control bottom inputWithphone" id="floatingPhone"  onChange={(e)=>{setPatientPhoneNo(e.target.value)}} placeholder="Patient Phone Number:-"required />
       <label htmlFor="floatingPhone">Patient Phone Number:-</label>
   </div>
+    <div class="form-floating">
+      <label htmlFor="floatingPhone">Patient Photo:-</label>
+      <input type="file" name="photo"class="form-control bottom inputWithphone" id="floatingPhone" value={UserPhoto.src} onChange={UserPhotoFile} placeholder="Patient Phone Number:-"required />
+  </div>
+
+
       <div class="form-floating ">
       <label htmlFor="state">Patient State:-</label>
       <select
@@ -136,7 +186,7 @@ function Patient() {
   
      
       <button class="w-100 btn btn-lg btn-primary" type="submit" onClick={e => {addItem(e.preventDefault())}}>Add as Patient </button>
-      <p class="mt-5 mb-3 text-muted">&copy; hostpital</p>
+      <p class="mt-5 mb-3 text-muted">&copy; hospital</p>
     </form>
   </main>
  
