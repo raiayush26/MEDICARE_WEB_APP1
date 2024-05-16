@@ -48,9 +48,12 @@ function ModifyClinic() {
                     try {
                     const id =location.state.id;
                     setClinicId(id)
-                    const res =await axios.get('http://localhost:4000/clinic/get').then((res)=>console.log(res.data))}
+                    await axios.get('http://localhost:4000/clinic/get').then((res)=>console.log(res.data))}
                      catch (error) {console.log(error);}}
-                  useEffect(()=>{getClinic(); renderUpdateForm1(); renderUpdateForm2()},[])
+
+                  useEffect(()=>{
+                    // eslint-disable-next-line
+                    getClinic(); renderUpdateForm1(); renderUpdateForm2()},[])
           const renderUpdateForm1= () => {
             return (<form className = '' >
                <label for="unique">This Text is have to Modify:-</label>

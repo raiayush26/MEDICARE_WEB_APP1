@@ -17,11 +17,10 @@ function DeleteClinicRecord() {
                     console.log(error);
             }
           } 
-          const deletehandle= async(id)=>{
+          const DeleteClinicR= async(id)=>{
                     try {
                               console.log(id);
-                              
-                              const res = await axios.delete(`http://localhost:4000/clinic/clinic/${id}`)
+                               await axios.delete(`http://localhost:4000/clinic/clinic/${id}`)
                               const newClinics=Clinics.filter(cil=> cil._id !==id);
                               setClinic(newClinics)
                     } catch (error) {
@@ -45,7 +44,7 @@ function DeleteClinicRecord() {
                 {(cil.departmentphoneno== null) ?  <td>null</td> : <td>{cil.departmentphoneno}</td>}
                 {(cil.DepartmentOpeningtime== null) ?  <td>Unavailable</td> : <td>{cil.DepartmentOpeningtime}</td>}
                 {(cil.DepartmentClosingtime== null) ?  <td>Unavailable </td> : <td>{cil.DepartmentClosingtime}</td>}
-                <td> < button className='del' type="submit" onClick={e =>{deletehandle(cil._id); }} >Delete </button></td>
+                <td> < button className='del' type="submit" onClick={e =>{DeleteClinicR(cil._id); }} >Delete </button></td>
                 <td> <button className='del' onClick={e => {jump(cil._id)}} type="submit" >Modify this element</button></td>
               </tr> 
                 ))}
