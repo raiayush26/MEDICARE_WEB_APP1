@@ -3,19 +3,19 @@ import { useState ,useEffect } from 'react';
 import axios from 'axios';
 import Sidebar from "../../Sidebar/Sidebar";
 import "./del.css"
-import { Navigate, Navigator, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 
-function Delpat() {
+function ModifyPatientList() {
           const navigate = useNavigate();
           const [Patients,setPatient] = useState([]);
           const getPatient =async() => {
-                    try {const res = await axios.get('http://localhost:4000/Pat/Patients').then((res) =>setPatient(res.data));}
+                    try { await axios.get('http://localhost:4000/Pat/Patients').then((res) =>setPatient(res.data));}
                      catch (error) {console.log(error);}                    
           }
           useEffect(()=>{
                     getPatient()
           },[])
-const deletehandle= async(id)=>{
+const DeletePatientRecords= async(id)=>{
   try {
     console.log(id);
     const res = await axios.delete(`http://localhost:4000/Pat/api/Patients/${id}`)
@@ -55,7 +55,7 @@ const jump = async(id)=>{
                                                             {(pat.patientPlace == null) ?  <td>nill</td> : <td>{pat.patientPlace}</td>}
                                                             {(pat.patientDisease == null) ?  <td>nill</td> : <td>{pat.patientDisease}</td>}
                                                             {(pat.patientNumber == null) ?  <td>0</td> : <td>{pat.patientNumber}</td>}
-                                                            <td> < button className='del' type="submit" onClick={e =>{deletehandle(pat._id); }} >Delete </button></td>
+                                                            <td> < button className='del' type="submit" onClick={e =>{DeletePatientRecords(pat._id); }} >Delete </button></td>
                                                             <td> <button className='del' onClick={e => {jump(pat._id)}} type="submit" >Modify this element</button></td>
                                         </tr>
 
@@ -70,4 +70,4 @@ const jump = async(id)=>{
   )
 }
 
-export default Delpat
+export default ModifyPatientList

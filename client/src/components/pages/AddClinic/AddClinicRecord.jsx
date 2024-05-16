@@ -3,7 +3,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import Sidebar from "../../Sidebar/Sidebar";
 import './depart.css'
-function ReacherDept() {
+function AddClinicRecord() {
   const [deptname,setdeptname]= useState('');
   const [deptHead,setdeptHead] = useState(' ');
   const [deptcity,setdeptcity]= useState();
@@ -16,7 +16,7 @@ function ReacherDept() {
     //  e.preventDefault();
     
      try {
-       const res = await axios.post(`http://localhost:4000/reacherDept/api/reacherDept`,
+       const res = await axios.post(`http://localhost:4000/AddClinicRecord/api/AddClinicRecord`,
        {
         name: deptname,
         head:deptHead,
@@ -131,4 +131,4 @@ function ReacherDept() {
   )
 }
 
-export default ReacherDept;
+export default AddClinicRecord;

@@ -7,7 +7,7 @@ import Sidebar from "../../Sidebar/Sidebar";
 // import "./list.css"
 import './list.css'
 const b = 'null'
-function Listpat() {
+function ListPatientRecord() {
           const [Patients,setPatient] = useState([]);
           const getPatient =async() => {
                     try { await axios.get('http://localhost:4000/Pat/Patients').then((res) =>setPatient(res.data));}
@@ -57,4 +57,4 @@ function Listpat() {
   )
 }
 
-export default Listpat;
+export default ListPatientRecord;

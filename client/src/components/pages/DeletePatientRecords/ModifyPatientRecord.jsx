@@ -1,12 +1,12 @@
 import React, { useState ,useEffect} from 'react'
 import axios from 'axios';
-import Sidebar from '../../Sidebar/Sidebar'
+// import Sidebar from '../../Sidebar/Sidebar'
 import { useNavigate } from 'react-router-dom';
-import {Location, useLocation} from 'react-router-dom';
-function ModifyPat() {
+import { useLocation} from 'react-router-dom';
+function ModifyPatientRecord() {
           const location =useLocation();
          
-          const [Patients,setPatient] = useState([]);
+          const [,setPatient] = useState([]);
           const [ChangeText,setChangeText] = useState('')
           const [UpdateText,SetUpdateText] = useState(" ")
           const [PatientID,setPatientID] = useState('');
@@ -101,4 +101,4 @@ function ModifyPat() {
   )
 }
 
-export default ModifyPat
+export default ModifyPatientRecord

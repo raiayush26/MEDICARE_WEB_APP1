@@ -3,11 +3,11 @@ import React, { useEffect } from 'react'
 import { useState } from 'react'
 import Sidebar from '../../Sidebar/Sidebar'
 
-function Listcinic() {
+function ListClinicRecord() {
   const [clinic,setClinic]= useState([]);
   const getClinic = async ()=>{
     try {
-      const res =await axios.get('http://localhost:4000/clinic/get').then((res)=>setClinic(res.data))
+      await axios.get('http://localhost:4000/clinic/get').then((res)=>setClinic(res.data))
       console.log(clinic);
       
     } catch (error) {
@@ -15,6 +15,7 @@ function Listcinic() {
     }
   } 
   useEffect(()=>{
+    // eslint-disable-next-line
     getClinic()
 
   },[])
@@ -55,4 +56,4 @@ return (
   )
 }
 
-export default Listcinic
+export default ListClinicRecord

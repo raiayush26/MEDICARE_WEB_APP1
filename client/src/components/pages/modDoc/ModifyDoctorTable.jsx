@@ -1,17 +1,18 @@
 import axios from 'axios';
 import React, { useState ,useEffect} from 'react'
-import { Navigate, Navigator, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Sidebar from '../../Sidebar/Sidebar'
 
-function ModDocTable(props) {
+function ModifyDoctorTable() {
        
         const navigate = useNavigate();
         const [Doctors,setDoctor]= useState([]);
         const getDoctor =async() =>{
-                    try {const res= await axios.get(`http://localhost:4000/Doc/api/doctors`).then((res)=> setDoctor(res.data))}
+                    try { await axios.get(`http://localhost:4000/Doc/api/doctors`).then((res)=> setDoctor(res.data))}
                     catch (error) {console.log(error);}
                 }
         useEffect(()=>{
+                
                     getDoctor()
         },[])
         const jump = async(id)=>{
@@ -51,4 +52,4 @@ function ModDocTable(props) {
   )
 }
 
-export default ModDocTable
+export default ModifyDoctorTable

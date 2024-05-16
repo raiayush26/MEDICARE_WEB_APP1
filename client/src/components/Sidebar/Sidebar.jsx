@@ -19,12 +19,12 @@ const handlechange =() =>{
             </div>
             <ul>
                 <li><a href="/about">About</a></li> 
-                <li><a href="/Doc">Add Doctor</a></li> 
+                <li><a href="/addDoc">Add Doctor</a></li> 
                 <li> <a href="/LisDoc">List Doctor</a></li> 
-                <li><a href="/Deldoc">Delete Doctor</a></li> 
+                <li><a href="DeleteDoctorRecords">Delete Doctor</a></li> 
                 <li> <a href="/modifyDocTable">Modify Doctor</a></li> 
                 <li> <a href="/reacherDept">Add Clinic</a></li> 
-                <li> <a href="/Lisclinic">List Clinic</a></li> 
+                <li> <a href="/ListClinicRecord">List Clinic</a></li> 
                 <li> <a href="/Delclinic">Delete Clinic</a></li> 
                 <li> <a href="/Modclinic">Modify Clinic</a></li> 
                 

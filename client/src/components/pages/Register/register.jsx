@@ -12,7 +12,7 @@ function Register (){
   const [lName, setLname] = useState('');
   const [email,setEmail] = useState();
   const [password, setPassword] = useState();
-  const [entries, setEntries] = useState([]);
+  const [, setEntries] = useState([]);
  
   const navigate = useNavigate();
 // Add Food Item

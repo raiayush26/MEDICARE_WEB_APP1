@@ -2,11 +2,11 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import { useEffect } from 'react';
 import Sidebar from '../../Sidebar/Sidebar'
-function ListDoctor() {
+function ListDoctorRecord() {
           const [Doctors,setDoctor]= useState([]);
           const getDoctor =async() =>{
                     try {
-                         const res= await axios.get('http://localhost:4000/Doc/api/doctors').then((res)=> setDoctor(res.data))
+                        await axios.get('http://localhost:4000/Doc/api/doctors').then((res)=> setDoctor(res.data))
                            
                     } catch (error) {
                               console.log("rffgg"+error);
@@ -46,4 +46,4 @@ function ListDoctor() {
   )
 }
 
-export default ListDoctor
+export default ListDoctorRecord

@@ -2,24 +2,24 @@ import React from 'react'
 import { useState ,useEffect } from 'react';
 import axios from 'axios';
 import Sidebar from "../../Sidebar/Sidebar";
-function Deldoc() {
+function DeleteDoctorRecords() {
           const [Doctors,setDoctor]= useState([]);
-          const [isUpdating, setIsUpdating] = useState('');
-  const [updateItemText, setNewItemText] = useState('');
+          
+  
           const getDoctor =async() =>{
                     try {
                          const res= await axios.get('http://localhost:4000/Doc/api/doctors').then((res)=> setDoctor(res.data))
-                    } catch (error) {console.log("rffgg"+error);}
+                    } catch (error) {console.log(error);}
           }
           useEffect(()=>{
                     getDoctor()
           },[])
-const deletehandle= async(id)=>{
+const DeleteDoctorRecord= async(id)=>{
           try {
                     console.log(id);
                     const res = await axios.delete(`http://localhost:4000/Doc/api/doctors/${id}`)
-                    const newDoctorslist=Doctors.filter(doc=> doc._id !==id);
-                    setDoctor(newDoctorslist)
+                    const newDoctorsItem=Doctors.filter(doc=> doc._id !==id);
+                    setDoctor(newDoctorsItem)
           } catch (error) {
                     console.log(error);
           }
@@ -44,7 +44,7 @@ const deletehandle= async(id)=>{
                 {(doc.docEmail == null) ?  <td>null</td> : <td>{doc.docEmail}</td>}
                 {(doc.docNumber == null) ?  <td>null</td> : <td>{doc.docNumber}</td>}
                 {(doc.docplace == null) ?  <td>null</td> : <td>{doc.docplace}</td>}
-                <td> < button className='del' type="submit" onClick={e =>{deletehandle(doc._id); }}  >Delete </button></td>
+                <td> < button className='del' type="submit" onClick={e =>{DeleteDoctorRecord(doc._id); }}  >Delete </button></td>
                 </tr> 
                 
                 ))}
@@ -60,4 +60,4 @@ const deletehandle= async(id)=>{
   )
 }
 
-export default Deldoc
+export default DeleteDoctorRecords

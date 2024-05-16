@@ -4,11 +4,11 @@ import axios from 'axios';
 import { useLocation ,useNavigate} from 'react-router-dom';
 
 import './mod.css'
-function ModifyDoctor(){
+function ModifyDoctorRecord(){
   
   
   const location =useLocation();
-  const [Doctors,setDoctor]= useState([]);
+  const [,setDoctor]= useState([]);
   const [ChangeText,setChangeText] = useState('')
   const [UpdatedText,setUpdatedText] = useState(" ")
   const [DoctorID,setDoctorID] = useState('');
@@ -25,11 +25,14 @@ function ModifyDoctor(){
   const getDoctorDetails =async() =>{
     try {const id = location.state.id;
       setDoctorID(id)
-         const res= await axios.get(`http://localhost:4000/Doc/api/doctor/${id}`).then((res)=> setDoctor(res.data))}
+         await axios.get(`http://localhost:4000/Doc/api/doctor/${id}`).then((res)=> setDoctor(res.data))}
           catch (error) {console.log(error);alert("id is not found!")}
 }
+
 useEffect(()=>{
+  // eslint-disable-next-line
     getDoctorDetails()
+    // eslint-disable-next-line
 },[])
 const UpdateDoctor = async(e)=>{
  
@@ -98,4 +101,4 @@ const UpdateDoctor = async(e)=>{
   )
 }
 
-export default ModifyDoctor
+export default ModifyDoctorRecord

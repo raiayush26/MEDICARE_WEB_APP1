@@ -1,12 +1,12 @@
 import React , {useEffect,useState} from 'react'
 import axios from 'axios';
 import Sidebar from '../../Sidebar/Sidebar'
-import { Navigate, Navigator, useNavigate } from 'react-router-dom';
-function Delclinic() {
+import {  useNavigate } from 'react-router-dom';
+function DeleteClinicRecord() {
           const [Clinics,setClinic]= useState([]);
           const navigate = useNavigate();
           const getClinic = async ()=>{
-            try {const res =await axios.get('http://localhost:4000/clinic/get').then((res)=>setClinic(res.data))}
+            try {await axios.get('http://localhost:4000/clinic/get').then((res)=>setClinic(res.data))}
              catch (error) {console.log(error);}}
           useEffect(()=>{getClinic()},[])
 
@@ -58,4 +58,4 @@ function Delclinic() {
   )
 }
 
-export default Delclinic
+export default DeleteClinicRecord

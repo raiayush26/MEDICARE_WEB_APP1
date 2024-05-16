@@ -7,22 +7,22 @@ import Success from "./pages/success/success";
 // import Admin from "./pages/admin/admin";
 import AdLogin from "./pages/admin/Login";
 import Patient from "./pages/patient/Patient";
-import ReacherDept from "./pages/AddClinic/depart";
+import AddClinicRecord from "./pages/AddClinic/AddClinicRecord";
 import Doctor from "./pages/doctor/doctor";
 import Footer from "./Footer/footer";
 import NoPage from "./pages/NoPage/nopage";
-import Listdoc from "./pages/listdoc/Listdoc";
-import Listcinic from "./pages/listClinic/Listcinic";
-import Delpat from "./pages/delPat/Delpat";
-import Deldoc from "./pages/delDoc/Deldoc";
-import Delclinic from "./pages/delCinic/Delclinic";
+import ListDoctorRecord from "./pages/ListDoctorRecord/ListDoctorRecord";
+import ListClinicRecord from "./pages/ListClinicRecord/ListClinicRecord";
+import DeletePatientRecords from "./pages/DeletePatientRecords/ModifyPatientList";
+import DeleteDoctorRecords from "./pages/DeleteDoctorRecords/DeleteDoctorRecords";
+import Delclinic from "./pages/ModifyClinic/DeleteClinicRecord";
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import Listpat from "./pages/listPati/Listpat";
-import ModiflyPat from "./pages/delPat/ModiflyPat";
-import Modclinic from "./pages/delCinic/modclinic";
-import ModifyDoctor from "./pages/modDoc/ModifyDoctor";
+import ListPatientRecord from "./pages/ListPatientRecord/ListPatientRecord";
+import ModifyPatientRecord from "./pages/DeletePatientRecords/ModifyPatientRecord";
+import ModifyClinic from "./pages/ModifyClinic/ModifyClinic";
+import ModifyDoctor from "./pages/modDoc/ModifyDoctorRecord";
 import About from "./pages/About/About";
-import ModDocTable from "./pages/modDoc/ModDocTable";
+import ModDocTable from "./pages/modDoc/ModifyDoctorTable";
 
 function App(){
     return(
@@ -34,26 +34,31 @@ function App(){
                     <Route path = "/login" element = {<Login />} />
                     <Route path = "/fail" element = {<Failure />} />
                     <Route path= "/success" element = {<Success />} />
-                    {/* <Route path= "/admin" element = {<Admin />} /> */}
                     <Route path= "/about" element = {<About />} />
                     <Route path= "/admin" element = {<AdLogin />} />
-                    <Route path= "/Patient" element = {<Patient />}/>
-                    <Route path= "/reacherDept" element ={<ReacherDept/>}/>
-                    <Route path= "/doc" element ={<Doctor/>}/>
-                    <Route path = "/Lispatient" element={<Listpat/>}/>
-                    <Route path = "/Lisclinic" element={<Listcinic/>}/>
-                    <Route path = "/LisDoc" element={<Listdoc/>}/>
-                    <Route path = "/Delpatient" element={<Delpat/>}/>
-                    <Route path = "/Delpatient" element={<Delpat/>}/>
-                    <Route path = "/Modpatient" element={<Delpat/>}/>
-                    <Route path = "/Deldoc" element={<Deldoc/>}/>
+                   
+                    {/* Doctor Section */}
+                    <Route path = "/LisDoc" element={<ListDoctorRecord/>}/>
+                    <Route path= "/addDoc" element ={<Doctor/>}/>
+                    <Route path = "DeleteDoctorRecords" element={<DeleteDoctorRecords/>}/>
+                    <Route path = "/modifyDocTable" element={<ModDocTable/>}/>
+                    <Route path = "/modifyDoc" element={<ModifyDoctor/>}/>
+
+                    {/* Clinic Section */}
+                    <Route path = "/ListClinicRecord" element={<ListClinicRecord/>}/>
+                    <Route path = "/modifyClinic" element={<ModifyClinic />}/>
+                    <Route path= "/AddClinicRecord" element ={<AddClinicRecord/>}/>
                     <Route path = "/Delclinic" element={<Delclinic/>}/>
                     <Route path = "/Modclinic" element={<Delclinic/>}/>
-                   
-                   <Route path = "/modifyDocTable" element={<ModDocTable/>}/>
-                    <Route path = "/modifyDoc" element={<ModifyDoctor/>}/>
-                    <Route path = "/modifyPatient" element={<ModiflyPat />}/>
-                    <Route path = "/modifyClinic" element={<Modclinic />}/>
+
+
+                    <Route path = "/Modpatient" element={<DeletePatientRecords/>}/>                   
+                    <Route path= "/Patient" element = {<Patient />}/>
+                    <Route path = "/Lispatient" element={<ListPatientRecord/>}/>
+                    <Route path = "/Delpatient" element={<DeletePatientRecords/>}/>
+                   <Route path = "/modifyPatient" element={<ModifyPatientRecord />}/>
+
+
                     <Route path= '*' element ={<NoPage/>}/>
                     
                     
