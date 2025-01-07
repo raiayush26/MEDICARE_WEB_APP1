@@ -6,6 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import axios from "axios";
 import "./admin.css"
 import { useNavigate } from "react-router-dom";
+import { Server } from "../../Server/Server";
 function Admin(){
     const navigate = useNavigate();
     const [email,setEmail] = useState();
@@ -14,7 +15,7 @@ function Admin(){
     const addItem = async() => {
   
         try {
-          const res = await axios.post(`http://localhost:4000/admin/register`,{ username: email, password: password})
+          const res = await axios.post(`${Server}/admin/register`,{ username: email, password: password})
            
           console.log(res.data);
           if  (res.data.message ) {return Toast.error(res.data.message)}

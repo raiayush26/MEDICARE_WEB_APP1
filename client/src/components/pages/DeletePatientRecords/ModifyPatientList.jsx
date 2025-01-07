@@ -4,12 +4,13 @@ import axios from 'axios';
 import Sidebar from "../../Sidebar/Sidebar";
 import "./del.css"
 import {  useNavigate } from 'react-router-dom';
+import { Server } from '../../Server/Server';
 
 function ModifyPatientList() {
           const navigate = useNavigate();
           const [Patients,setPatient] = useState([]);
           const getPatient =async() => {
-                    try { await axios.get('http://localhost:4000/Pat/Patients').then((res) =>setPatient(res.data));}
+                    try { await axios.get(`${Server}/Pat/Patients`).then((res) =>setPatient(res.data));}
                      catch (error) {console.log(error);}                    
           }
           useEffect(()=>{
@@ -18,7 +19,7 @@ function ModifyPatientList() {
 const DeletePatientRecords= async(id)=>{
   try {
     console.log(id);
-    const res = await axios.delete(`http://localhost:4000/Pat/api/Patients/${id}`)
+    const res = await axios.delete(`${Server}/Pat/api/Patients/${id}`)
     const newPatientslist=Patients.filter(pat=> pat._id !==id);
     setPatient(newPatientslist)
   } catch (error) {

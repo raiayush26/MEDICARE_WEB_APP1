@@ -5,6 +5,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import  Toast  from "../toast";
 import ToastContainer from "../toastContai"
 import 'react-toastify/dist/ReactToastify.css';
+import { Server } from "../../Server/Server";
 // this ois Admin login
 function Login() {
   const [email, setEmail] = useState();
@@ -16,7 +17,7 @@ function Login() {
        
         try {
          //dfgre
-            const res = await axios.post(`http://localhost:4000/admin/adminlogin`,{
+            const res = await axios.post(`${Server}/admin/adminlogin`,{
                   username: email,
                   password: password                
                 }//v

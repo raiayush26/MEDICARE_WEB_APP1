@@ -2,13 +2,14 @@ import React from 'react'
 import { useState ,useEffect } from 'react';
 import axios from 'axios';
 import Sidebar from "../../Sidebar/Sidebar";
+import { Server } from '../../Server/Server';
 function DeleteDoctorRecords() {
           const [Doctors,setDoctor]= useState([]);
           
   
           const getDoctor =async() =>{
                     try {
-                         const res= await axios.get('http://localhost:4000/Doc/api/doctors').then((res)=> setDoctor(res.data))
+                         const res= await axios.get(`${Server}/Doc/api/doctors`).then((res)=> setDoctor(res.data))
                     } catch (error) {console.log(error);}
           }
           useEffect(()=>{
@@ -17,7 +18,7 @@ function DeleteDoctorRecords() {
 const DeleteDoctorRecord= async(id)=>{
           try {
                     console.log(id);
-                    const res = await axios.delete(`http://localhost:4000/Doc/api/doctors/${id}`)
+                    const res = await axios.delete(`${Server}/Doc/api/doctors/${id}`)
                     const newDoctorsItem=Doctors.filter(doc=> doc._id !==id);
                     setDoctor(newDoctorsItem)
           } catch (error) {

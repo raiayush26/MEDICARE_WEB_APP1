@@ -6,6 +6,7 @@ import Header from "../home/navbar";
 import { NavLink } from 'react-router-dom';
 import  Toast  from "../toast";
 import ToastContainer from "../toastContai"
+import { Server } from '../../Server/Server';
 function Doctor() {
   const [DoctorName,setDoctorName] = useState('');
   const [docSpec,setSpec] = useState();
@@ -19,7 +20,7 @@ function Doctor() {
     //  e.preventDefault();
     
      try {
-       const res = await axios.post(`http://localhost:4000/Doc/post`,
+       const res = await axios.post(`${Server}:4000/Doc/post`,
        {
         doctorName: DoctorName,       
         docSpecialization:docSpec,

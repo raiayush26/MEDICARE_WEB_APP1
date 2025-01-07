@@ -2,12 +2,13 @@ import axios from 'axios';
 import React, { useEffect } from 'react'
 import { useState } from 'react'
 import Sidebar from '../../Sidebar/Sidebar'
+import { Server } from '../../Server/Server';
 
 function ListClinicRecord() {
   const [clinic,setClinic]= useState([]);
   const getClinic = async ()=>{
     try {
-      await axios.get('http://localhost:4000/clinic/get').then((res)=>setClinic(res.data))
+      await axios.get(`${Server}/clinic/get`).then((res)=>setClinic(res.data))
       console.log(clinic);
       
     } catch (error) {

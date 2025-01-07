@@ -3,6 +3,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import Sidebar from "../../Sidebar/Sidebar";
 import './depart.css'
+import { Server } from '../../Server/Server';
 function AddClinicRecord() {
   const [deptname,setdeptname]= useState('');
   const [deptHead,setdeptHead] = useState(' ');
@@ -14,9 +15,9 @@ function AddClinicRecord() {
   const [entries, setEntries] = useState([]);
   const addItem = async() => {
     //  e.preventDefault();
-    
+   
      try {
-       const res = await axios.post(`http://localhost:4000/AddClinicRecord/api/AddClinicRecord`,
+       const res = await axios.post(`${Server}/AddClinicRecord/api/AddClinicRecord`,
        {
         name: deptname,
         head:deptHead,
@@ -38,6 +39,7 @@ function AddClinicRecord() {
        console.error(error);
      }
    }
+  
   return (
     <>
       <Sidebar/>

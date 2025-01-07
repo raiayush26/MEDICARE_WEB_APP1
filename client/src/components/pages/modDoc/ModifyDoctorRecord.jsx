@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useLocation ,useNavigate} from 'react-router-dom';
 
 import './mod.css'
+import { Server } from '../../Server/Server';
 function ModifyDoctorRecord(){
   
   
@@ -25,7 +26,7 @@ function ModifyDoctorRecord(){
   const getDoctorDetails =async() =>{
     try {const id = location.state.id;
       setDoctorID(id)
-         await axios.get(`http://localhost:4000/Doc/api/doctor/${id}`).then((res)=> setDoctor(res.data))}
+         await axios.get(`${Server}/Doc/api/doctor/${id}`).then((res)=> setDoctor(res.data))}
           catch (error) {console.log(error);alert("id is not found!")}
 }
 

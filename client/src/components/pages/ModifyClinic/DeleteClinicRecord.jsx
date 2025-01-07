@@ -2,11 +2,12 @@ import React , {useEffect,useState} from 'react'
 import axios from 'axios';
 import Sidebar from '../../Sidebar/Sidebar'
 import {  useNavigate } from 'react-router-dom';
+import { Server } from '../../Server/Server';
 function DeleteClinicRecord() {
           const [Clinics,setClinic]= useState([]);
           const navigate = useNavigate();
           const getClinic = async ()=>{
-            try {await axios.get('http://localhost:4000/clinic/get').then((res)=>setClinic(res.data))}
+            try {await axios.get(`${Server}/clinic/get`).then((res)=>setClinic(res.data))}
              catch (error) {console.log(error);}}
           useEffect(()=>{getClinic()},[])
 
@@ -20,7 +21,7 @@ function DeleteClinicRecord() {
           const DeleteClinicR= async(id)=>{
                     try {
                               console.log(id);
-                               await axios.delete(`http://localhost:4000/clinic/clinic/${id}`)
+                               await axios.delete(`${Server}/clinic/clinic/${id}`)
                               const newClinics=Clinics.filter(cil=> cil._id !==id);
                               setClinic(newClinics)
                     } catch (error) {

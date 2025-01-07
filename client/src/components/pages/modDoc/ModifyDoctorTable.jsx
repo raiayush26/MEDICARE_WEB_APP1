@@ -2,13 +2,14 @@ import axios from 'axios';
 import React, { useState ,useEffect} from 'react'
 import { useNavigate } from 'react-router-dom';
 import Sidebar from '../../Sidebar/Sidebar'
+import { Server } from '../../Server/Server';
 
 function ModifyDoctorTable() {
        
         const navigate = useNavigate();
         const [Doctors,setDoctor]= useState([]);
         const getDoctor =async() =>{
-                    try { await axios.get(`http://localhost:4000/Doc/api/doctors`).then((res)=> setDoctor(res.data))}
+                    try { await axios.get(`${Server}/Doc/api/doctors`).then((res)=> setDoctor(res.data))}
                     catch (error) {console.log(error);}
                 }
         useEffect(()=>{

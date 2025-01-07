@@ -6,11 +6,12 @@ import { useEffect } from 'react';
 
 // import "./list.css"
 import './list.css'
+import { Server } from '../../Server/Server';
 const b = 'null'
 function ListPatientRecord() {
           const [Patients,setPatient] = useState([]);
           const getPatient =async() => {
-                    try { await axios.get('http://localhost:4000/Pat/Patients').then((res) =>setPatient(res.data));}
+                    try { await axios.get(`${Server}/Pat/Patients`).then((res) =>setPatient(res.data));}
                      catch (error) {console.log(error);}        
           }
           useEffect(()=>{

@@ -3,6 +3,7 @@ import axios from 'axios';
 // import Sidebar from '../../Sidebar/Sidebar'
 import { useNavigate } from 'react-router-dom';
 import { useLocation} from 'react-router-dom';
+import { Server } from '../../Server/Server';
 function ModifyPatientRecord() {
           const location =useLocation();
          
@@ -22,22 +23,22 @@ function ModifyPatientRecord() {
                               console.log("place "+placeholder);
                     switch (placeholder) {
                               case ("patientName"):
-                                await axios.put(`http://localhost:4000/Pat/updated/patient/${PatientID}`,{patientName:UpdateText}).then(navigate("/Delpatient"))
+                                await axios.put(`${Server}/Pat/updated/patient/${PatientID}`,{patientName:UpdateText}).then(navigate("/Delpatient"))
                                 break;
                               case ("patientAge"):
-                                await axios.put(`http://localhost:4000/Pat/updated/patient/${PatientID}`,{patientAge:UpdateText}).then(navigate("/Delpatient"))
+                                await axios.put(`${Server}/Pat/updated/patient/${PatientID}`,{patientAge:UpdateText}).then(navigate("/Delpatient"))
                                 break;
                               case ("patientDisease"):
-                                await axios.put(`http://localhost:4000/Pat/updated/patient/${PatientID}`,{patientDisease:UpdateText}).then(navigate("/Delpatient"))
+                                await axios.put(`${Server}/Pat/updated/patient/${PatientID}`,{patientDisease:UpdateText}).then(navigate("/Delpatient"))
                                 break;
                               case ("patientPhoneNo"):
-                                await axios.put(`http://localhost:4000/Pat/updated/patient/${PatientID}`,{patientNumber:UpdateText}).then(navigate("/Delpatient"))
+                                await axios.put(`${Server}/Pat/updated/patient/${PatientID}`,{patientNumber:UpdateText}).then(navigate("/Delpatient"))
                                 break;   
                               case ("patientBlood"):
-                                await axios.put(`http://localhost:4000/Pat/updated/patient/${PatientID}`,{patientBlood:UpdateText}).then(navigate("/Delpatient"))
+                                await axios.put(`${Server}/Pat/updated/patient/${PatientID}`,{patientBlood:UpdateText}).then(navigate("/Delpatient"))
                                 break;     
                               case ("patientPlace"):
-                                await axios.put(`http://localhost:4000/Pat/updated/patient/${PatientID}`,{patientPlace:UpdateText}).then(navigate("/Delpatient"))
+                                await axios.put(`${Server}/Pat/updated/patient/${PatientID}`,{patientPlace:UpdateText}).then(navigate("/Delpatient"))
                                 break
                               default:
                                 console.log("no");
@@ -51,7 +52,7 @@ function ModifyPatientRecord() {
           const getPatientDetails =async() => {
                     try {const id =location.state.id;
                               setPatientID(id)
-                              const res = await axios.get('http://localhost:4000/Pat/Patients').then((res) =>setPatient(res.data));}
+                              const res = await axios.get('${Server}/Pat/Patients').then((res) =>setPatient(res.data));}
                      catch (error) {console.log(error);alert("id is not found!")}}
           useEffect(()=>{getPatientDetails()},[])
   return (

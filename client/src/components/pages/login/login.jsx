@@ -5,6 +5,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import  Toast  from "../toast";
 import ToastContainer from "../toastContai"
 import 'react-toastify/dist/ReactToastify.css';
+import { Server } from "../../Server/Server";
 
 function Login(){
     const [email, setEmail] = useState();
@@ -14,7 +15,7 @@ function Login(){
     const handleLogin = async(e) => {
        
         try {
-            const res = await axios.post(`http://localhost:4000/register/login`,
+            const res = await axios.post(`${Server}/register/login`,
                 {
                   email: email,
                   password: password                

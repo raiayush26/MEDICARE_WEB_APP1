@@ -11,6 +11,7 @@ import axios from 'axios';
 import Sidebar from "../../Sidebar/Sidebar";
 import './Patient.css';
 import Item from '../../ListItem/ListItem';
+import { Server } from '../../Server/Server';
 function Patient() {
   const location =useLocation();
   const firstName = location.state.firstName;
@@ -47,7 +48,7 @@ function Patient() {
   //     console.log(PatientBloodGroup);
   //     console.log(Email);
   //     console.log(PatientState);
-  //      const res = await axios.post(`http://localhost:4000/Pat/Patient`,
+  //      const res = await axios.post(`${Server}/Pat/Patient`,
   //      {
   //       PatientName: PatientName,
   //       PatientAge:PatientAge,
@@ -75,7 +76,7 @@ function Patient() {
          console.log(imageRef);
         await uploadBytes(imageRef, UserPhoto).then((snapshot) => {
         getDownloadURL(snapshot.ref).then(async (downloadURL) => {
-          const res = await axios.post(`http://localhost:4000/Pat/Patient`,
+          const res = await axios.post(`${Server}/Pat/Patient`,
        {
         PatientName: PatientName,
         PatientAge:PatientAge,

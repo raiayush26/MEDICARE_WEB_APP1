@@ -12,6 +12,7 @@ import { ToastContainer, toast } from "react-toastify";
 import blank from "../../../images/blank.png";
 
 import Loader from "./loader/loader";
+import { Server } from "../../Server/Server";
 
 let foundEntry = {};
 
@@ -31,7 +32,7 @@ function Success() {
         async function getEntry() {
             try {
                 console.log(emails);    
-                const res = await axios.get(`http://localhost:4000/Pat/Patients/${emails}`)
+                const res = await axios.get(`${Server}/Pat/Patients/${emails}`)
                 if(res.data.success ){
                     console.log("yes");
                     setArea(res.data.query[0].patientPlace);
@@ -57,7 +58,7 @@ function Success() {
                 if (Area === null) {
                     setClinicItem(0)
                 } else {
-                    const Clinic = await axios.get(`http://localhost:4000/clinic/clinic/${Area}`)
+                    const Clinic = await axios.get(`${Server}/clinic/clinic/${Area}`)
                     console.log(Clinic.data)
                     if (Clinic.data === "Empty") {
                         console.log("yes");
@@ -83,7 +84,7 @@ function Success() {
                 if (Area === null) {
                     setDoctorItem(0)
                 } else {
-                    const res = await axios.get(`http://localhost:4000/Doc/doc/${Area}`)
+                    const res = await axios.get(`${Server}/Doc/doc/${Area}`)
                     if (res.data === "Empty") {
                         setDoctorItem(0)
                     } else {

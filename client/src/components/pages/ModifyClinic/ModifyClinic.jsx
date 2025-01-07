@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import { useNavigate } from 'react-router-dom';
 import { useLocation} from 'react-router-dom';
+import { Server } from '../../Server/Server';
 function ModifyClinic() {
           const location =useLocation();
           const [ChangeText,setChangeText] = useState('')
@@ -21,23 +22,23 @@ function ModifyClinic() {
                               console.log("place "+placeholder);
                               switch (placeholder) {
                                 case ("departmentName"):
-                                     await axios.put(`http://localhost:4000/clinic/${ClinicId}`,{departmentName:UpdatedText}).then(navigate("/Modclinic"))
+                                     await axios.put(`${Server}/clinic/${ClinicId}`,{departmentName:UpdatedText}).then(navigate("/Modclinic"))
                                     break;
                                 case ("departmentHead"):
-                                          await axios.put(`http://localhost:4000/clinic/${ClinicId}`,{patientAge:UpdatedText}).then(navigate("/Modclinic"))
+                                          await axios.put(`${Server}/clinic/${ClinicId}`,{patientAge:UpdatedText}).then(navigate("/Modclinic"))
                                     break;
                                 case ("departmentEmployment"):
-                                          await axios.put(`http://localhost:4000/clinic/${ClinicId}`,{departmentEmployment:UpdatedText}).then(navigate("/Modclinic"))
+                                          await axios.put(`${Server}/clinic/${ClinicId}`,{departmentEmployment:UpdatedText}).then(navigate("/Modclinic"))
                                     break;
                                 case ("departmentphoneno"):
                                           console.log("patientNumber");
-                                         await axios.put(`http://localhost:4000/clinic/${ClinicId}`,{departmentphonenor:UpdatedText}).then(navigate("/Modclinic"))
+                                         await axios.put(`${Server}/clinic/${ClinicId}`,{departmentphonenor:UpdatedText}).then(navigate("/Modclinic"))
                                    break;   
                                 case ("OpeningTime"):
-                                        await axios.put(`http://localhost:4000/clinic/${ClinicId}`,{DepartmentOpeningtime:UpdatedText}).then(navigate("/Modclinic"))
+                                        await axios.put(`${Server}/clinic/${ClinicId}`,{DepartmentOpeningtime:UpdatedText}).then(navigate("/Modclinic"))
                                       break;     
                                 case ("ClosingTime"):
-                                          await axios.put(`http://localhost:4000/clinic/${ClinicId}`,{DepartmentClosingtime:UpdatedText}).then(navigate("/Modclinic"))
+                                          await axios.put(`${Server}/clinic/${ClinicId}`,{DepartmentClosingtime:UpdatedText}).then(navigate("/Modclinic"))
                                           break
                                 default:
                                     console.log("no");
@@ -48,7 +49,7 @@ function ModifyClinic() {
                     try {
                     const id =location.state.id;
                     setClinicId(id)
-                    await axios.get('http://localhost:4000/clinic/get').then((res)=>console.log(res.data))}
+                    await axios.get(`${Server}/clinic/get`).then((res)=>console.log(res.data))}
                      catch (error) {console.log(error);}}
 
                   useEffect(()=>{

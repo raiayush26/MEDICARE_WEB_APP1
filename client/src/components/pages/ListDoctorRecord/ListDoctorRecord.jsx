@@ -2,11 +2,12 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import { useEffect } from 'react';
 import Sidebar from '../../Sidebar/Sidebar'
+import { Server } from '../../Server/Server';
 function ListDoctorRecord() {
           const [Doctors,setDoctor]= useState([]);
           const getDoctor =async() =>{
                     try {
-                        await axios.get('http://localhost:4000/Doc/api/doctors').then((res)=> setDoctor(res.data))
+                        await axios.get(`${Server}/Doc/api/doctors`).then((res)=> setDoctor(res.data))
                            
                     } catch (error) {
                               console.log("rffgg"+error);
