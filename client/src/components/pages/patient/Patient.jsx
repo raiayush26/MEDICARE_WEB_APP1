@@ -100,7 +100,7 @@ function Patient() {
   
   return (
     <>
-      <Sidebar/>
+      {/* <Sidebar/> */}
     <main class="form-signin">
     <form>    
       <h1 class="h3 mb-3 mb-4 fw-normal">Patient Form </h1>   

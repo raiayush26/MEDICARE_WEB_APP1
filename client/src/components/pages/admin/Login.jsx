@@ -15,7 +15,7 @@ function Login() {
     const handleLogin = async(e) => {
        
         try {
-          
+         //dfgre
             const res = await axios.post(`http://localhost:4000/admin/adminlogin`,{
                   username: email,
                   password: password                
@@ -29,7 +29,7 @@ function Login() {
             else{
                 if(res.data=== email){
                   navigate("/about")
-                    console.log("Succefully");
+                    console.log("Successfully");
                     
                 }else{return Toast.error("Password is Incorrect")}}  
           

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import React from 'react'
 import { useEffect } from 'react';
-import Sidebar from "../../Sidebar/Sidebar";
+// import Sidebar from "../../Sidebar/Sidebar";
 
 // import "./list.css"
 import './list.css'
@@ -18,7 +18,7 @@ function ListPatientRecord() {
             getPatient()},[])
   return (
           <>
-          <Sidebar/>
+          {/* <Sidebar/> */}
     <div className="admin">
           <div className='patient-list'>
                     

@@ -3,10 +3,10 @@ const bcrypt = require("bcrypt");
 const User = require('../models/adminModel');
 const session = require('express-session');
 const passport = require("passport");
-const passportLocalMongoose = require("passport-local-mongoose");
-const { application } = require('express');
+//const passportLocalMongoose = require("passport-local-mongoose");
+//const { application } = require('express');
 
-const jwt = require('jsonwebtoken')
+//const jwt = require('jsonwebtoken')
 
 passport.use(User.createStrategy());
 

@@ -8,8 +8,10 @@ import DocPlace from "./docPlace"
 import ClinicPlace from "./ClinicPlace";
 import Card from "./Card";
 import { ToastContainer, toast } from "react-toastify";
-import ProfilePic from "../../../images/Photo-min.jpg";
+// import ProfilePic from "../../../images/Photo-min.jpg";
 import blank from "../../../images/blank.png";
+
+import Loader from "./loader/loader";
 
 let foundEntry = {};
 
@@ -101,7 +103,7 @@ function Success() {
         getDoctorPlace();
         getClinicPlace()
         setIsLoading(false);
-    }, 2000);
+    }, 1000);
     return () => {clearTimeout(timeID);  };
        
     }, [Area]);
@@ -188,7 +190,7 @@ useEffect(() => {
 
                 </select>
             </div>
-            {(isLoading) ? <div className="loading">Loading...</div> : 
+            {(isLoading) ? <div className="loading"><Loader/></div> : 
             
             <>
             <DocPlace place={(Area)}/>
